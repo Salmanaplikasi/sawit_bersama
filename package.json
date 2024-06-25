@@ -26,6 +26,9 @@
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.10.0"
   },
+
+
+  
   "dependencies": {
     "http-server": "^14.1.1",
     "regenerator-runtime": "^0.14.1"
