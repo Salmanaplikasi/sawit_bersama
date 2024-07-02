@@ -1,671 +1,304 @@
+<!-- PISAHKAN SCRIPT DI BAWAH INI DALAM HTML, CSS, DAN JAVASCRIPT TAPI TETEP JAGA TAMPILAN TETAP SEPERTI GAMBAR YANG SAYA TUNJUKKAN: -->
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Informasi terkini tentang obat-obatan" />
-    <link rel="icon" href="./favicon.jpg" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <title>RISET SAWIT</title>
-  </head>
-  <body>
-    <header class="app-bar">
-      <div class="app-bar__menu">
-        <button id="hamburgerButton">☰</button>
-      </div>
-      <div class="app-bar__brand">
-        <h1><img src="./favicon.jpg" alt="Logo" /></h1>
-      </div>
-      <nav id="navigationDrawer" class="app-bar__navigation">
-        <ul class="nav-ul">
-          <li><a href="#/Beranda">Beranda</a></li>
-          <li><a href="#/Informasi-Obat">Informasi Obat</a></li>
-          <li><a href="#/Edukasi">Edukasi</a></li>
-          <li><a href="#/Kelolaobat" class="kelola">Kelola Obat</a></li>
-
-          <li>
-            <a
-              href="#/Login"
-              id="loginLink"
-              style="
-                color: #2d511d;
-                font-weight: bold;
-                border-radius: 20px;
-                width: 80px;
-                background-color: white;
-                text-align: center;
-              "
-              >Login</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <div class="login-form" id="login-form" style="display: none">
-      <h2>Sign In</h2>
-      <form id="signInForm">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <div class="form-group">
-          <input type="checkbox" id="remember-me" name="remember-me" />
-          <label for="remember-me">Remember Me</label>
-        </div>
-        <button type="submit" class="login-btn" id="signInButton">
-          Sign In
-        </button>
-      </form>
-      <p style="padding-top: 5px">
-        Don't have an account? <a href="#" id="signUpLink">Sign Up</a>
-      </p>
-      <p>Need help?</p>
-    </div>
-
-    <div class="signup-form" id="signup-form" style="display: none">
-      <h2>Sign Up</h2>
-      <form id="signUpForm">
-        <div class="form-group">
-          <label for="new-name">Name</label>
-          <input type="text" id="new-name" name="new-name" required />
-        </div>
-        <div class="form-group">
-          <label for="new-email">Email</label>
-          <input type="email" id="new-email" name="new-email" required />
-        </div>
-        <div class="form-group">
-          <label for="new-password">Password</label>
-          <input
-            type="password"
-            id="new-password"
-            name="new-password"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="confirm-password">Confirm Password</label>
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
-            required
-          />
-        </div>
-        <button type="submit" class="signup-btn" id="signUpButton">
-          Sign Up
-        </button>
-      </form>
-      <p style="padding-top: 5px">
-        Have an account? <a href="#" id="signInLink">Login</a>
-      </p>
-    </div>
-
-    <main id="mainContent">
-      <section id="Beranda">
-        <div class="hero">
-          <img src="./heros/heros.png" alt="heros" />
-          <div class="TampilAwal">
-            <h1>Welcome to the Health and Medicine Website</h1>
-            <p>
-              Halo! Selamat datang di platform kesehatan kami. Temukan informasi
-              terkini tentang kesehatan dan obat-obatan dengan mudah di sini.
-              Dapatkan artikel edukatif, tips kesehatan, video edukasi kesehatan, dan ulasan obat yang
-              akurat dan relevan. Mari bersama mencapai kesehatan optimal dengan
-              mendukung platform kami ini. Selamat menjelajah dan semoga bermanfaat!
-            </p>
-          </div>
-        </div>
-
-        <div class="obat">
-          <h2 class="heading">Informasi Obat</h2>
-          <div class="groupObat">
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1nKR0aykdPOK3jQ1yLJMXFksEOCPrg8Z0/view?usp=drive_link"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/luka_bakar.jpg" alt="luka" />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/seperti-ini-cara-mengatasi-luka-bakar-pada-anak-yang-tepat"
-                target="blank"
-              >
-                <div class="text">Luka Bakar</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1Kd4Zn3HdIOgzDmKMipxfcXHzMlsT_sjz/view?usp=drive_link"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/diare.jpg" alt="diare" />
-                </div>
-              </a>
-              <a
-                href="https://sehatnegeriku.kemkes.go.id/baca/tips-sehat/20170403/4620310/kenali-diare-anak-dan-cara-pencegahannya/"
-                target="blank"
-              >
-                <div class="text">Diare</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1o5AAnVCQQQp2CliAUNxWaPjEtOWlQnO9/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/maag.jpg" alt="maag" />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/berikut-daftar-obat-maag-yang-perlu-anda-ketahui"
-                target="blank"
-              >
-                <div class="text">Sakit Maag</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1OjpPuOUGNmGY1CndEX8rgcTe3N6bef-i/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/mual.jpg" alt="mual" />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/berbagai-jenis-obat-mual-muntah"
-                target="blank"
-              >
-                <div class="text">Mual-mual</div>
-              </a>
-            </div>
-          </div>
-
-          <div class="lihat-semua">
-            <a href="Edukasi"></a>
-          </div>
-        </div>
-
-        <div class="edukasi">
-          <div class="judul">
-            <h2 class="heading2">Edukasi</h2>
-          </div>
-
-          <div class="groupEdukasi">
-            <div class="VideoEdukasi">
-              <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce">
-                <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1" />
-                <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
-              </a>
-            </div>
-
-            <div class="VideoEdukasi">
-              <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G">
-                <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2" />
-                <h3>Obat Paten vs Obat Generik, Mana yang lebih baik ?</h3>
-              </a>
-            </div>
-
-            <div class="VideoEdukasi">
-              <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn">
-                <img src="obat-campur-campur.jpg" alt="Video 3" />
-                <h3>Boleh gk yah minum obat asal asalan?</h3>
-              </a>
-            </div>
-
-            <div class="VideoEdukasi">
-              <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct">
-                <img src="fakta-mitos-remaja.jpg" alt="Video 4" />
-                <h3>Mitos VS Fakta Kesehatan Remaja</h3>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="Informasi-Obat">
-        <div class="obat2">
-          <h2 class="heading2" style="text-align: center">Informasi Obat</h2>
-          <div class="groupObat2">
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1nKR0aykdPOK3jQ1yLJMXFksEOCPrg8Z0/view?usp=drive_link"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/luka_bakar.jpg" alt="luka" />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/seperti-ini-cara-mengatasi-luka-bakar-pada-anak-yang-tepat"
-                target="blank"
-              >
-                <div class="text2">Luka Bakar</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1Kd4Zn3HdIOgzDmKMipxfcXHzMlsT_sjz/view?usp=drive_link"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/diare.jpg" alt="diare" />
-                </div>
-              </a>
-              <a
-                href="https://sehatnegeriku.kemkes.go.id/baca/tips-sehat/20170403/4620310/kenali-diare-anak-dan-cara-pencegahannya/"
-                target="blank"
-              >
-                <div class="text2">Diare</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1o5AAnVCQQQp2CliAUNxWaPjEtOWlQnO9/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/maag.jpg" alt="maag" />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/berikut-daftar-obat-maag-yang-perlu-anda-ketahui"
-                target="blank"
-              >
-                <div class="text2">Sakit Maag</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1OjpPuOUGNmGY1CndEX8rgcTe3N6bef-i/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/mual.jpg" alt="mual" />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/berbagai-jenis-obat-mual-muntah"
-                target="blank"
-              >
-                <div class="text2">Mual-mual</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1Gkr-P2xe0dK-Ad03Zh-t-49RNsKcvKFM/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/nyeri-otot.jpg" alt="nyeri" />
-                </div>
-              </a>
-              <a
-                href="https://rsupsoeradji.id/yuk-gunakan-obat-anti-nyeri-dengan-bijak/"
-                target="blank"
-              >
-                <div class="text2">Nyeri-nyeri</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1N2rWRvyASq7mHT-Bmz3ep1uuwqlJ3phT/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img
-                    class="img"
-                    src="./images/radang-tenggorokan.jpg"
-                    alt="radang"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.halodoc.com/artikel/ini-11-obat-radang-tenggorokan-untuk-dewasa-tanpa-resep-dokter"
-                target="blank"
-              >
-                <div class="text2">Radang</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1GUD6HErlFTht3gPshTgaIH-kYq5yH67I/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img
-                    class="img"
-                    src="./images/sakit-mata.jpg"
-                    alt="sakit mata"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/7-obat-sakit-mata-yang-ampuh-dan-aman"
-                target="blank"
-              >
-                <div class="text2">Sakit Mata</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1xkUTQ7EVaD0gXbDOdfi4wHcjyqPizpEq/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img class="img" src="./images/sariawan.jpg" alt="sariawan" />
-                </div>
-              </a>
-              <a
-                href="https://www.halodoc.com/artikel/ini-7-rekomendasi-obat-sariawan-yang-ampuh-dan-mudah-ditemukan"
-                target="blank"
-              >
-                <div class="text2">Sariawan</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/16NeVPRb3ABZ4MZAhDX-rFXZP_q3rI1ww/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img
-                    class="img"
-                    src="./images/sembelit.jpg"
-                    alt="susah BAB"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.halodoc.com/artikel/ini-rekomendasi-obat-bab-keras-yang-tersedia-di-apotek"
-                target="blank"
-              >
-                <div class="text2">Susah BAB</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1c8kscXw87P3sP4X3ME_jOJvvVnoO6LIH/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img
-                    class="img"
-                    src="./images/keputihan.jpg"
-                    alt="Keputihan"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.alodokter.com/7-obat-keputihan-yang-ampuh-atasi-keluhan-dan-penyebabnya"
-                target="blank"
-              >
-                <div class="text2">Keputihan</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1WMssgFUg48D7LDop0fUowwx-O8v8g3fH/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img
-                    class="img"
-                    src="./images/gatal-gatal.jpg"
-                    alt="Sakit Mata"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.halodoc.com/artikel/ini-rekomendasi-7-obat-gatal-pada-kulit-yang-ampuh-di-apotek"
-                target="blank"
-              >
-                <div class="text2">Gatal-gatal</div>
-              </a>
-            </div>
-
-            <div class="jenisObat">
-              <a
-                href="https://drive.google.com/file/d/1NSkLs5g-MCiUGn3SHXAr5h5AGLTzDRHv/view?usp=sharing"
-                target="blank"
-              >
-                <div class="ellipse">
-                  <img
-                    class="img"
-                    src="./images/batuk_pilek.jpg"
-                    alt="Batuk Pilek"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.k24klik.com/blog/obat-batuk-pilek-paling-ampuh/"
-                target="blank"
-              >
-                <div class="text2">Batuk Pilek</div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="drug-list">
-          <h2>Daftar Obat</h2>
-          <div class="search-add-container-obat">
-            <div class="search-bar">
-              <input type="text" class="search-text" placeholder="Cari obat" />
-              <button class="search-btn">
-                <i class="fa fa-search" style="font-size: 18px"></i>
-              </button>
-            </div>
-          </div>
-          <div class="drug-grid"></div>
-          <div class="paginationObat">
-            <span>Showing 1 - 10 results of 298</span>
-            <div class="pagination-buttons-obat">
-              <button>&lt;</button>
-              <span>Page 01</span>
-              <button>&gt;</button>
-            </div>
-          </div>
-          <div
-            id="medicine-detail-popup"
-            class="DetailPopup"
-            style="display: none"
-          >
-            <div class="DetailPopup-content">
-              <span class="close-button">&times;</span>
-              <h3 id="popup-medicine-name"></h3>
-              <br />
-              <p>
-                <strong>Class Therapy</strong> <br />
-                <span id="popup-class-therapy"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Subclass Therapy 1</strong> <br />
-                <span id="popup-subclass_therapy1"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Subclass Therapy 2</strong> <br />
-                <span id="popup-subclass_therapy2"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Subclass Therapy 3</strong> <br />
-                <span id="popup-subclass_therapy3"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Power</strong> <br />
-                <span id="popup-power"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Unit</strong> <br />
-                <span id="popup-unit"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Type</strong> <br />
-                <span id="popup-type"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Composition</strong> <br />
-                <span id="popup-composition"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Drug Restrictions</strong> <br />
-                <span id="popup-drug_restrictions"></span>
-              </p>
-              <hr />
-              <p>
-                <strong>Maximum Prescription</strong> <br />
-                <span id="popup-maximum_prescription"></span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="Edukasi" class="edukasi-menu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sawit Rover & Drone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #2a9d8f;
+            padding: 20px;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        header nav ul li {
+            margin-left: 20px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        header .auth-buttons button {
+            background-color: white;
+            color: #2a9d8f;
+            border: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .showcase {
+            background: linear-gradient(to right, #2a9d8f, #72efdd);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+        }
+        .showcase h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .showcase p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .showcase button {
+            background-color: #023047;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .info-section, .offer-section, .how-it-works-section, .cta-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .info-section h2, .offer-section h2, .how-it-works-section h2, .cta-section h2 {
+            color: #023047;
+            margin-bottom: 30px;
+        }
+        .info-section .info-box, .offer-section .offer-box, .how-it-works-section .how-it-works-box {
+            display: flex;
+            justify-content: space-around;
+            text-align: left;
+        }
+        .info-section .info-box div, .offer-section .offer-box div, .how-it-works-section .how-it-works-box div {
+            width: 30%;
+            background-color: #edf6f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .info-section .info-box div img, .offer-section .offer-box div img, .how-it-works-section .how-it-works-box div img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+        .info-section .info-box div h3, .offer-section .offer-box div h3, .how-it-works-section .how-it-works-box div h3 {
+            color: #023047;
+            margin-bottom: 10px;
+        }
+        .info-section .info-box div p, .offer-section .offer-box div p, .how-it-works-section .how-it-works-box div p {
+            color: #023047;
+        }
+        .cta-section button {
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #023047;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer .container div {
+            margin: 10px;
+        }
+        footer a {
+            color: #2a9d8f;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer .social-icons {
+            display: flex;
+        }
+        footer .social-icons img {
+            width: 30px;
+            margin: 0 5px;
+        }
+        footer .email-updates {
+            display: flex;
+            align-items: center;
+        }
+        footer .email-updates input {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        footer .email-updates button {
+            padding: 10px 20px;
+            background-color: #2a9d8f;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
         <div class="container">
-          <h2>Video Edukasi Kesehatan</h2>
-          <div class="video-grid">
-            <!-- Video 1 -->
-            <div class="video-item">
-              <img src="Edukasi-Tentang-Obat-1.jpg" alt="Video 1" />
-              <h3>Peran Obat dalam Menghancurkan Penyakit</h3>
-              <p>
-                Mari perhatikan video ini karena penting loh untuk pengetahuan
-                kita tentang peran obat yang harus kita ketahui:'
-              </p>
-              <a href="https://youtu.be/vGIGTX0x46Q?si=F7hp0uMtwzzXZCce"
-                >Tonton Video 1 di YouTube</a
-              >
+            <img src="sred-logo.png" alt="SRED Logo" style="height:50px;">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Feature</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Testimonial</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="signUpBtn">Sign Up</button>
+                <button id="logInBtn">Log In</button>
             </div>
-
-            <!-- Video 2 -->
-            <div class="video-item">
-              <img src="obat-generik-dan-obat-paten.jpg" alt="Video 2" />
-              <h3>Obat Paten vs Obat Generik, Mana yang lebih baik ?</h3>
-              <p>
-                Jadi kita harus tau nih obat-obtan yang mana yang dapat kita
-                beli langsung dan mana obat yang harus dengan resep dokter
-              </p>
-              <a href="https://youtu.be/3rmwhearFKU?si=a0wUmFOIg8Yovc5G"
-                >Tonton Video 2 di YouTube</a
-              >
-            </div>
-
-            <!-- Video 3 -->
-            <div class="video-item">
-              <img src="obat-campur-campur.jpg" alt="Video 3" />
-              <h3>Boleh gk yah minum obat asal asalan?</h3>
-              <p>
-                Jangan minu obat campur campur yah karena obat yang
-                campur-campur akan berakibat fatal dan berbahaya bagi hidup
-                kita. mari lebih care terhadapt dir kita tentang pentingnya
-                minum obat sesuai anjuran dokter. Karena kita gk belajar tentang
-                kandungan obat dan tentang obat obatan. Banyak bahys deh kalo
-                minum obat asal asalan dan campur campur :],
-              </p>
-              <a href="https://youtu.be/URIDZtdDti0?si=ziKM8F09zjQi5xmn"
-                >Tonton Video 3 di YouTube</a
-              >
-            </div>
-
-            <!-- Video 4 -->
-            <div class="video-item">
-              <img src="fakta-mitos-remaja.jpg" alt="Video 4" />
-              <h3>Mitos VS Fakta Kesehatan Remaja</h3>
-              <p>
-                Ini nih fakta dan mitos yang berkembang di kalangan masyarakat
-                dari yang muda sampai yang tua. Yuk simak video di bawah ini
-                dengan baik yah. Semoga kita gak salah lagi dan bisa membedakan
-                mana yang fakta dan mitos karena itu penting loh.
-              </p>
-              <a href="https://youtu.be/Q7ozaVytNo4?si=5xwRyAXQWBHnTvct"
-                >Tonton Video 4 di YouTube</a
-              >
-            </div>
-
-            <!-- Video 5 -->
-            <div class="video-item">
-              <img src="no-rokok.jpg" alt="Video 5" />
-              <h3>Jangan Ngerokok Lagi Yahh</h3>
-              <p>
-                Buat kita nih yang masih suka merokok, ayuk jauhi ngerokok yuk.
-                kita tahu bahayanya merokok dan kita juga sudah tau manfat
-                menjauhi rokok. yok tonton video biar kita sehat dan orang orang
-                di sekitar kita juga ikut sehat.
-              </p>
-              <a href="https://youtu.be/fUlfpFi1Dao?si=kzp6dOdc0faZOaF-"
-                >Tonton Video 5 di YouTube</a
-              >
-            </div>
-
-            <!-- Video 6 -->
-            <div class="video-item">
-              <img src="8 cara.jpg" alt="Video 6" />
-              <h3>8 Tips Kesehatan</h3>
-              <p>
-                Ini nih tips kesehatan yang mungkin banyak orang tau tapi sering
-                lupa tau bahhkan sering dilupakan loh. Tolong jaga kesehatan
-                yang karena kesehatan itu mahal banget guyss
-              </p>
-              <a href="https://youtu.be/_JtsswlZzPg?si=zrKFkuyESZSOvlwW"
-                >Tonton Video 6 di YouTube</a
-              >
-            </div>
-          </div>
         </div>
-      </section>
-      <section
-        id="Kelolaobat"
-        class="kelola-obat"
-        style="display: none"
-      ></section>
-    </main>
+    </header>
+    <section class="showcase">
+        <div class="container">
+            <img src="hero-image.png" alt="Hero Image" style="width:100%; max-width:500px;">
+            <h1>Sawit Rover & Drone</h1>
+            <p>Welcome to our innovative platform: "SRED". We present you with a cutting-edge solution for efficient and secure monitoring and data recording from drones and rovers, utilizing blockchain technology.</p>
+            <button id="getProductBtn">Get Product</button>
+            <div>
+                <img src="hero-stats-user.png" alt="1100+ Active Users" style="margin-top: 20px;">
+            </div>
+        </div>
+    </section>
+    <section class="info-section">
+        <div class="container">
+            <h2>Palm Oil Community Information</h2>
+            <div class="info-box">
+                <div>
+                    <img src="membership-icon.png" alt="Membership Icon">
+                    <h3>Membership Organisations</h3>
+                    <p>Palm oil company organizations existing in various countries, to support the global palm oil demand.</p>
+                </div>
+                <div>
+                    <img src="national-icon.png" alt="National Associations Icon">
+                    <h3>National Associations</h3>
+                    <p>Palm oil company organizations existing in various countries, to support the global palm oil demand.</p>
+                </div>
+                <div>
+                    <img src="clubs-icon.png" alt="Clubs and Groups Icon">
+                    <h3>Clubs And Groups</h3>
+                    <p>Groups of palm oil companies that exist in response to global palm oil issues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="offer-section">
+        <div class="container">
+            <h2>What do we offer?</h2>
+            <div class="offer-box">
+                <div>
+                    <img src="security-icon.png" alt="Security Guarantee Icon">
+                    <h3>Security Guarantee</h3>
+                    <p>Your data and funds will be securely protected.</p>
+                </div>
+                <div>
+                    <img src="monitoring-icon.png" alt="Monitoring Icon">
+                    <h3>Monitoring</h3>
+                    <p>You can monitor your drone and its data in real-time.</p>
+                </div>
+                <div>
+                    <img src="multiple-icon.png" alt="Multiple Method Icon">
+                    <h3>Multiple Method</h3>
+                    <p>Your data and funds will be securely protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works-section">
+        <div class="container">
+            <h2>How do rover drones work in plantations and what are their functions?</h2>
+            <div class="how-it-works-box">
+                <div>
+                    <img src="rover-drones-image.png" alt="Rover Drones Image">
+                    <p>Rover drones, also known as ground-based drones or ground robots, play a significant role in modern agricultural practices, particularly in plantations. These specialized vehicles combine the mobility of rovers with the capabilities of drones, offering a unique solution for monitoring, data collection, and precision agriculture in agricultural settings. Here's how they work and what their functions are:</p>
+                    <button id="learnMoreBtn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Get Our Rover & Drone Products Now</h2>
+            <button id="getDemoBtn">Get a Demo</button>
+        </div>
+    </section>
+    
     <footer>
-      <p>Copyright &copy; 2024 - <strong>The Health and Medicine</strong></p>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="footer-logo.png" alt="Footer Logo" style="height:50px;">
+            </div>
+            <div class="footer-links">
+                <a href="#">About us</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact us</a>
+                <a href="#">Pricing</a>
+                <a href="#">Testimonials</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Help center</a>
+                <a href="#">Terms of service</a>
+                <a href="#">Legal</a>
+                <a href="#">Privacy policy</a>
+                <a href="#">Status</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+            </div>
+            <div class="email-updates">
+                <input type="email" placeholder="Your email address">
+                <button><img src="paper-plane-icon.png" alt="Paper Plane" style="height:20px;"> Subscribe</button>
+            </div>
+        </div>
     </footer>
+    <script>
+        document.getElementById('signUpBtn').addEventListener('click', function() {
+            window.location.href = '#';
+        });
+        document.getElementById('logInBtn').addEventListener('click', function() {
+            window.location.href = '#';
+        });
+        document.getElementById('getProductBtn').addEventListener('click', function() {
+            window.location.href = '#';
+        });
+        document.getElementById('learnMoreBtn').addEventListener('click', function() {
+            window.location.href = '#';
+        });
+        document.getElementById('getDemoBtn').addEventListener('click', function() {
+            window.location.href = '#';
+        });
+    </script>
+    <script src="home.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
+
+
