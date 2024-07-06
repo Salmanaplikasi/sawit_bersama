@@ -1,11 +1,11 @@
-<!-- PISAHKAN SCRIPT DI BAWAH INI DALAM HTML, CSS, DAN JAVASCRIPT TAPI TETEP JAGA TAMPILAN TETAP SEPERTI GAMBAR YANG SAYA TUNJUKKAN: -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.png" />
     <title>Sawit Rover & Drone</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,7 +87,7 @@
             text-align: center;
         }
         .info-section .info-box div img, .offer-section .offer-box div img, .how-it-works-section .how-it-works-box div img {
-            width: 60px;
+            width: 145px;
             margin-bottom: 10px;
         }
         .info-section .info-box div h3, .offer-section .offer-box div h3, .how-it-works-section .how-it-works-box div h3 {
@@ -158,12 +158,11 @@
             <img src="sred-logo.png" alt="SRED Logo" style="height:50px;">
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">Feature</a></li>
-                    <li><a href="#">Product</a></li>
-                    <li><a href="#">Testimonial</a></li>
-                    
+                    <li><button data-target="#home">Home</button></li>
+                    <li><button data-target="#service">Service</button></li>
+                    <li><button data-target="#feature">Feature</button></li>
+                    <li><button data-target="#product">Product</button></li>
+                    <li><button data-target="#testimonial">Testimonial</button></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
@@ -172,7 +171,7 @@
             </div>
         </div>
     </header>
-    <section class="showcase">
+    <section class="showcase" id="home">
         <div class="container">
             <img src="hero-image.png" alt="Hero Image" style="width:100%; max-width:500px;">
             <h1>Sawit Rover & Drone</h1>
@@ -183,6 +182,9 @@
             </div>
         </div>
     </section>
+
+
+
     <section class="info-section">
         <div class="container">
             <h2>Palm Oil Community Information</h2>
@@ -204,9 +206,20 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="offer-section">
+        <div>
+            <div style="margin-top: 60px; margin-bottom: 60px;">
+                <img src="health-plants-image.png" alt="plants Image" width="400" height="200">
+                <h3>How to Determine the Health of Oil Palm Plants?</h3>
+                <p>Certainly, assessing the health of oil palm plants involves observing various indicators and factors that can provide insights into their well-being. Here are some methods and aspects to consider when determining the health of oil palm plants</p>
+                <button>Learn More</button>
+            </div>
+        </div>
+        
+
+
+    </section>
+    <section class="offer-section" id="service">
         <div class="container">
             <h2>What do we offer?</h2>
             <div class="offer-box">
@@ -229,20 +242,24 @@
         </div>
     </section>
 
-    <section class="how-it-works-section">
+    
+    <section class="how-it-works-section" id="feature">
         <div class="container">
             <h2>How do rover drones work in plantations and what are their functions?</h2>
             <div class="how-it-works-box">
                 <div>
-                    <img src="rover-drones-image.png" alt="Rover Drones Image">
+                    <img src="rover-drones-image.png" alt="Rover Drones Image" width="800" height="200">  
                     <p>Rover drones, also known as ground-based drones or ground robots, play a significant role in modern agricultural practices, particularly in plantations. These specialized vehicles combine the mobility of rovers with the capabilities of drones, offering a unique solution for monitoring, data collection, and precision agriculture in agricultural settings. Here's how they work and what their functions are:</p>
                     <button id="learnMoreBtn">Learn More</button>
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    
+
+    <section class="cta-section" id="product">
         <div class="container">
             <h2>Get Our Rover & Drone Products Now</h2>
             <button id="getDemoBtn">Get a Demo</button>
@@ -295,10 +312,16 @@
         document.getElementById('getDemoBtn').addEventListener('click', function() {
             window.location.href = '#';
         });
-    </script>
-    <script src="home.js"></script>
 
+        document.querySelectorAll('ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
-
