@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./favicon.png" />
     <title>Sawit Rover & Drone</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/src/style/styles.css">
 </head>
 <body>
     <header>
@@ -13,11 +13,11 @@
             <img src="sred-logo.png" alt="SRED Logo" style="height:50px;">
             <nav>
                 <ul>
-                    <li><button data-target="#home">Home</button></li>
-                    <li><button data-target="#service">Service</button></li>
-                    <li><button data-target="#feature">Feature</button></li>
-                    <li><button data-target="#product">Product</button></li>
-                    <li><button data-target="#testimonial">Testimonial</button></li>
+                    <li><button data-target="#home"><a href="#home">Home</a></button></li>
+                    <li><button data-target="#service"><a href="#service">Service</a></button></li>
+                    <li><button data-target="#feature"><a href="#feature">Feature</a></button></li>
+                    <li><button data-target="#product"><a href="#product">Product</a></button></li>
+                    <li><button data-target="#testimonial"><a href="#testimonial">Testimonial</a></button></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
@@ -26,10 +26,10 @@
             </div>
         </div>
     </header>
-    <section class="showcase" id="home">
+    <section class="showcase">
         <div class="container">
             <img src="hero-image.png" alt="Hero Image" style="width:100%; max-width:500px;">
-            <h1>Sawit Rover & Drone</h1>
+            <h1 id="home">Sawit Rover & Drone</h1>
             <p>Welcome to our innovative platform: "SRED". We present you with a cutting-edge solution for efficient and secure monitoring and data recording from drones and rovers, utilizing blockchain technology.</p>
             <button id="getProductBtn">Get Product</button>
             <div>
@@ -40,7 +40,7 @@
 
 
 
-    <section class="info-section">
+    <section class="info-section" id="service">
         <div class="container">
             <h2>Palm Oil Community Information</h2>
             <div class="info-box">
@@ -70,11 +70,10 @@
                 <button>Learn More</button>
             </div>
         </div>
-        
-
-
     </section>
-    <section class="offer-section" id="service">
+
+
+    <section class="offer-section" id="feature">
         <div class="container">
             <h2>What do we offer?</h2>
             <div class="offer-box">
@@ -98,7 +97,7 @@
     </section>
 
     
-    <section class="how-it-works-section" id="feature">
+    <section class="how-it-works-section" id="product">
         <div class="container">
             <h2>How do rover drones work in plantations and what are their functions?</h2>
             <div class="how-it-works-box">
@@ -114,7 +113,7 @@
 
     
 
-    <section class="cta-section" id="product">
+    <section class="cta-section" id="testimonial">
         <div class="container">
             <h2>Get Our Rover & Drone Products Now</h2>
             <button id="getDemoBtn">Get a Demo</button>
