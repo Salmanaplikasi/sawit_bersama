@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+}
+header {
+    background-color: #2a9d8f;
+    padding: 20px;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header nav ul li {
+    margin-left: 20px;
+}
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+header .auth-buttons button {
+    background-color: white;
+    color: #2a9d8f;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.showcase {
+    background: linear-gradient(to right, #2a9d8f, #72efdd);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+}
+.showcase h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+.showcase p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.showcase button {
+    background-color: #023047;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.info-section, .offer-section, .how-it-works-section, .cta-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+.info-section h2, .offer-section h2, .how-it-works-section h2, .cta-section h2 {
+    color: #023047;
+    margin-bottom: 30px;
+}
+.info-section .info-box, .offer-section .offer-box, .how-it-works-section .how-it-works-box {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+}
+.info-section .info-box div, .offer-section .offer-box div, .how-it-works-section .how-it-works-box div {
+    width: 30%;
+    background-color: #edf6f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.info-section .info-box div img, .offer-section .offer-box div img, .how-it-works-section .how-it-works-box div img {
+    width: 145px;
+    margin-bottom: 10px;
+}
+.info-section .info-box div h3, .offer-section .offer-box div h3, .how-it-works-section .how-it-works-box div h3 {
+    color: #023047;
+    margin-bottom: 10px;
+}
+.info-section .info-box div p, .offer-section .offer-box div p, .how-it-works-section .how-it-works-box div p {
+    color: #023047;
+}
+.cta-section button {
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+footer {
+    background-color: #023047;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+footer .container div {
+    margin: 10px;
+}
+footer a {
+    color: #2a9d8f;
+    text-decoration: none;
+    margin: 0 10px;
+}
+footer .social-icons {
+    display: flex;
+}
+footer .social-icons img {
+    width: 30px;
+    margin: 0 5px;
+}
+footer .email-updates {
+    display: flex;
+    align-items: center;
+}
+footer .email-updates input {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+}
+footer .email-updates button {
+    padding: 10px 20px;
+    background-color: #2a9d8f;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
