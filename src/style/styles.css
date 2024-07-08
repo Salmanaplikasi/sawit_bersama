@@ -1,146 +1,266 @@
+/* Memberikan perilaku scrolling yang halus pada semua elemen */
 *{
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Menyediakan transisi scrolling yang halus saat berpindah antara tautan anchor */
 }
+
+/* Styling dasar untuk body */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    line-height: 1.6;
+    font-family: Arial, sans-serif; /* Mengatur jenis font utama untuk seluruh dokumen */
+    margin: 0; /* Menghilangkan margin default dari body */
+    padding: 0; /* Menghilangkan padding default dari body */
+    background-color: #f9f9f9; /* Menetapkan warna latar belakang abu-abu terang */
+    line-height: 1.6; /* Menetapkan tinggi garis untuk meningkatkan keterbacaan teks */
 }
+
+/* Styling untuk header */
 header {
-    background-color: #2a9d8f;
-    padding: 20px;
+    background-color: #2a9d8f; /* Menetapkan warna latar belakang hijau kebiruan untuk header */
+    padding: 20px; /* Memberikan padding 20px di sekitar konten header */
 }
+
+/* Container di dalam header untuk layout flex */
 header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak konten dalam header */
+    justify-content: space-between; /* Menyebar elemen-elemen di dalam container dengan ruang di antara mereka */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
 }
+
+/* Styling untuk list navigasi dalam header */
 header nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex; /* Mengatur list sebagai flexbox untuk menampilkan item secara horizontal */
+    list-style: none; /* Menghapus bullet default pada list */
+    padding: 0; /* Menghapus padding default pada list */
+    margin: 0; /* Menghapus margin default pada list */
 }
+
+/* Margin antar item dalam navigasi */
 header nav ul li {
-    margin-left: 20px;
+    margin-left: 70px; /* Memberikan jarak 20px antar item navigasi */
 }
+
+/* Styling untuk link dalam navigasi */
 header nav ul li a {
-    color:black;
-    text-decoration: none;
+    color: black; /* Menetapkan warna teks hitam untuk link */
+    text-decoration: none; /* Menghapus underline default pada link */
+    font-size: 1.5em;
 }
+
+/* Styling untuk tombol navigasi dalam header */
+header nav ul li button {
+    background: none; /* Menghilangkan background default dari tombol */
+    border: none; /* Menghilangkan border default dari tombol */
+    padding: 0; /* Menghilangkan padding default dari tombol */
+    cursor: pointer; /* Mengubah cursor menjadi pointer saat hover */
+}
+
+/* Styling untuk tombol autentikasi dalam header */
 header .auth-buttons button {
-    background-color: white;
-    color: #2a9d8f;
-    border: none;
-    padding: 10px 20px;
-    margin-left: 10px;
-    cursor: pointer;
+    background-color: white; /* Menetapkan warna latar belakang putih untuk tombol */
+    color: #2a9d8f; /* Menetapkan warna teks hijau kebiruan */
+    border: none; /* Menghapus border default pada tombol */
+    padding: 10px 20px; /* Menetapkan padding 10px atas/bawah dan 20px kiri/kanan */
+    margin-left: 10px; /* Memberikan jarak 10px antara tombol */
+    cursor: pointer; /* Mengubah cursor menjadi pointer saat hover */
 }
+
+/* Styling untuk bagian showcase */
 .showcase {
-    background: linear-gradient(to right, #2a9d8f, #72efdd);
-    padding: 50px 20px;
-    text-align: center;
-    color: white;
+    background: linear-gradient(to right, #2a9d8f, #72efdd); /* Mengatur gradien warna dari kiri ke kanan */
+    padding: 50px 20px; /* Memberikan padding 50px atas/bawah dan 20px kiri/kanan */
+    text-align: center; /* Mengatur teks di dalam showcase agar rata tengah */
+    color: white; /* Menetapkan warna teks putih */
 }
+
+/* Container di dalam showcase */
+.showcase .container {
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak konten dalam showcase */
+    flex-direction: column; /* Menyusun elemen dalam container secara vertikal */
+    align-items: center; /* Menyelaraskan item secara horizontal di tengah */
+}
+
+/* Heading dalam showcase */
 .showcase h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 2.5em; /* Menetapkan ukuran font besar untuk heading */
+    margin-bottom: 10px; /* Memberikan jarak 10px bawah heading */
 }
+
+/* Paragraf dalam showcase */
 .showcase p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.2em; /* Menetapkan ukuran font untuk paragraf */
+    margin-bottom: 20px; /* Memberikan jarak 20px bawah paragraf */
 }
+
+/* Tombol dalam showcase */
 .showcase button {
-    background-color: #023047;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
+    background-color: #023047; /* Menetapkan warna latar belakang biru gelap untuk tombol */
+    color: white; /* Menetapkan warna teks putih */
+    border: none; /* Menghapus border default pada tombol */
+    padding: 10px 20px; /* Menetapkan padding 10px atas/bawah dan 20px kiri/kanan */
+    font-size: 1em; /* Menetapkan ukuran font untuk tombol */
+    cursor: pointer; /* Mengubah cursor menjadi pointer saat hover */
 }
+
+/* Styling untuk berbagai section informasi */
 .info-section, .offer-section, .how-it-works-section, .cta-section {
-    padding: 50px 20px;
-    text-align: center;
+    padding: 50px 20px; /* Memberikan padding 50px atas/bawah dan 20px kiri/kanan pada setiap section */
+    text-align: center; /* Mengatur teks di dalam section agar rata tengah */
 }
+
+/* Container di dalam setiap section */
+.info-section .container, .offer-section .container, .how-it-works-section .container, .cta-section .container {
+    max-width: 1200px; /* Menetapkan lebar maksimum untuk container */
+    margin: auto; /* Menyetel margin otomatis untuk menengah container */
+}
+
+/* Heading dalam berbagai section */
 .info-section h2, .offer-section h2, .how-it-works-section h2, .cta-section h2 {
-    color: #023047;
-    margin-bottom: 30px;
+    color: #023047; /* Menetapkan warna teks biru gelap */
+    margin-bottom: 30px; /* Memberikan jarak 30px bawah heading */
 }
+
+/* Layout flex untuk konten dalam section */
 .info-section .info-box, .offer-section .offer-box, .how-it-works-section .how-it-works-box {
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak konten dalam section */
+    justify-content: space-around; /* Menyebar elemen-elemen dalam konten dengan ruang di antara mereka */
+    text-align: left; /* Menyelaraskan teks di dalam kotak ke kiri */
+    flex-wrap: wrap; /* Membungkus elemen ke baris berikutnya jika diperlukan */
+
 }
+
+/* Styling dasar untuk div dalam section */
 .info-section .info-box div, .offer-section .offer-box div, .how-it-works-section .how-it-works-box div {
-    width: 30%;
-    background-color: #edf6f9;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    width: 30%; /* Menetapkan lebar 30% untuk setiap div dalam konten */
+    background-color: #edf6f9; /* Menetapkan warna latar belakang abu-abu terang */
+    padding: 20px; /* Memberikan padding 20px di sekitar konten */
+    border-radius: 10px; /* Membuat sudut div menjadi melengkung */
+    text-align: center; /* Mengatur teks di dalam div agar rata tengah */
+    margin: 10px; /* Memberikan margin 10px di sekitar setiap div */
 }
+
+/* Styling untuk gambar dalam div section */
 .info-section .info-box div img, .offer-section .offer-box div img, .how-it-works-section .how-it-works-box div img {
-    width: 145px;
-    margin-bottom: 10px;
+    width: 145px; /* Menetapkan lebar gambar */
+    margin-bottom: 10px; /* Memberikan jarak 10px bawah gambar */
 }
+
+/* Heading dalam div section */
 .info-section .info-box div h3, .offer-section .offer-box div h3, .how-it-works-section .how-it-works-box div h3 {
-    color: #023047;
-    margin-bottom: 10px;
+    color: #023047; /* Menetapkan warna teks biru gelap */
+    margin-bottom: 10px; /* Memberikan jarak 10px bawah heading */
 }
+
+/* Paragraf dalam div section */
 .info-section .info-box div p, .offer-section .offer-box div p, .how-it-works-section .how-it-works-box div p {
-    color: #023047;
+    color: #023047; /* Menetapkan warna teks biru gelap */
 }
+
+/* Khusus untuk div di dalam info-section yang bukan bagian dari info-box */
+.info-section > div {
+    display: flex; /* Menggunakan flexbox untuk tata letak konten */
+    flex-direction: column; /* Menyusun elemen secara vertikal */
+    align-items: center; /* Menyelaraskan item secara horizontal di tengah */
+}
+
+/* Styling untuk gambar dalam div di luar info-box */
+.info-section > div > img {
+    width: 400px; /* Menetapkan lebar gambar */
+    height: 200px; /* Menetapkan tinggi gambar */
+    object-fit: cover; /* Memastikan gambar menutupi area yang ditentukan tanpa mengubah rasio aspeknya */
+}
+
+/* Heading dalam div di luar info-box */
+.info-section > div > h3 {
+    margin-top: 20px; /* Memberikan jarak 20px atas heading */
+    color: #023047; /* Menetapkan warna teks biru gelap */
+}
+
+/* Paragraf dalam div di luar info-box */
+.info-section > div > p {
+    margin-top: 10px; /* Memberikan jarak 10px atas paragraf */
+    color: #023047; /* Menetapkan warna teks biru gelap */
+    max-width: 600px; /* Menetapkan lebar maksimum untuk paragraf */
+}
+
+/* Tombol dalam div di luar info-box */
+.info-section > div > button {
+    background-color: #2a9d8f; /* Menetapkan warna latar belakang hijau kebiruan */
+    color: white; /* Menetapkan warna teks putih */
+    border: none; /* Menghapus border default */
+    padding: 10px 20px; /* Menetapkan padding 10px atas/bawah dan 20px kiri/kanan */
+    font-size: 1em; /* Menetapkan ukuran font */
+    cursor: pointer; /* Mengubah cursor menjadi pointer saat hover */
+    margin-top: 10px; /* Memberikan jarak 10px atas tombol */
+}
+
+/* Tombol dalam CTA section */
 .cta-section button {
-    background-color: #2a9d8f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
+    background-color: #2a9d8f; /* Menetapkan warna latar belakang hijau kebiruan untuk tombol */
+    color: white; /* Menetapkan warna teks putih */
+    border: none; /* Menghapus border default pada tombol */
+    padding: 10px 20px; /* Memberikan padding 10px atas/bawah dan 20px kiri/kanan */
+    font-size: 1em; /* Menetapkan ukuran font untuk tombol */
+    cursor: pointer; /* Mengubah cursor menjadi pointer saat hover */
 }
+
+/* Styling untuk footer */
 footer {
-    background-color: #023047;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+    background-color: #023047; /* Menetapkan warna latar belakang biru gelap untuk footer */
+    color: white; /* Menetapkan warna teks putih */
+    padding: 20px 0; /* Memberikan padding 20px atas/bawah */
+    text-align: center; /* Mengatur teks di dalam footer agar rata tengah */
 }
+
+/* Container dalam footer untuk layout flex */
 footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak konten dalam footer */
+    justify-content: space-between; /* Menyebar elemen-elemen di dalam container dengan ruang di antara mereka */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+    flex-wrap: wrap; /* Membungkus elemen ke baris berikutnya jika diperlukan */
 }
+
+/* Div dalam footer */
 footer .container div {
-    margin: 10px;
+    margin: 10px; /* Memberikan margin 10px di sekitar setiap div */
 }
+
+/* Link dalam footer */
 footer a {
-    color: #2a9d8f;
-    text-decoration: none;
-    margin: 0 10px;
+    color: #2a9d8f; /* Menetapkan warna teks hijau kebiruan untuk link */
+    text-decoration: none; /* Menghapus underline default pada link */
+    margin: 0 10px; /* Memberikan jarak 10px kanan/kiri pada link */
 }
+
+/* Layout flex untuk ikon sosial dalam footer */
 footer .social-icons {
-    display: flex;
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak ikon sosial */
 }
+
+/* Styling untuk gambar ikon sosial dalam footer */
 footer .social-icons img {
-    width: 30px;
-    margin: 0 5px;
+    width: 30px; /* Menetapkan lebar gambar ikon */
+    margin: 0 5px; /* Memberikan jarak 5px kanan/kiri pada gambar ikon */
 }
+
+/* Layout flex untuk email updates dalam footer */
 footer .email-updates {
-    display: flex;
-    align-items: center;
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak input dan tombol */
+    align-items: center; /* Menyelaraskan item secara vertikal di tengah */
 }
+
+/* Input untuk email updates dalam footer */
 footer .email-updates input {
-    padding: 10px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
+    padding: 10px; /* Memberikan padding 10px di sekitar teks input */
+    margin-right: 10px; /* Memberikan margin 10px di sebelah kanan input */
+    border: none; /* Menghapus border default pada input */
+    border-radius: 5px; /* Membuat sudut input menjadi melengkung */
 }
+
+/* Tombol untuk email updates dalam footer */
 footer .email-updates button {
-    padding: 10px 20px;
-    background-color: #2a9d8f;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
+    padding: 10px 20px; /* Memberikan padding 10px atas/bawah dan 20px kiri/kanan */
+    background-color: #2a9d8f; /* Menetapkan warna latar belakang hijau kebiruan untuk tombol */
+    border: none; /* Menghapus border default pada tombol */
+    color: white; /* Menetapkan warna teks putih */
+    cursor: pointer; /* Mengubah cursor menjadi pointer saat hover */
+    border-radius: 5px; /* Membuat sudut tombol menjadi melengkung */
 }
