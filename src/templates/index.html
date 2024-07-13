@@ -6,24 +6,226 @@
     <link rel="icon" href="./favicon.png" />
     <title>Sawit Rover & Drone</title>
     <link rel="stylesheet" href="/src/style/styles.css">
+    <style>
+        /* Gaya khusus untuk form signup */
+        #signup-form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <img src="sred-logo.png" alt="SRED Logo" style="height:50px;">
             <nav>
-                <ul>
+                <ul class="nav-ul">
                     <li><button data-target="#home"><a href="#home">Home</a></button></li>
                     <li><button data-target="#service"><a href="#service">Service</a></button></li>
                     <li><button data-target="#feature"><a href="#feature">Feature</a></button></li>
                     <li><button data-target="#product"><a href="#product">Product</a></button></li>
                     <li><button data-target="#testimonial"><a href="#testimonial">Testimonial</a></button></li>
+                    <li>
+                        <button id="loginButton" style="display: inline;">
+                            <a href="#/Login" id="loginLink"
+                               style="
+                                   color: #2d511d;
+                                   font-weight: bold;
+                                   border-radius: 20px;
+                                   width: 95px;
+                                   background-color: white;
+                                   text-align: center;
+                               ">Login</a>
+                        </button>
+                        <button id="logoutButton" style="display: none;">
+                            <a href="#/Logout" id="logoutLink"
+                               style="
+                                   color: #2d511d;
+                                   font-weight: bold;
+                                   border-radius: 20px;
+                                   width: 95px;
+                                   background-color: white;
+                                   text-align: center;
+                               ">Logout</a>
+                        </button>
+                    </li>
                 </ul>
+                
+                <div class="login-form" id="login-form" style="display: none">
+                    <h2>Sign In</h2>
+                    <form id="signInForm">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" id="remember-me" name="remember-me" />
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                        <button type="submit" class="login-btn" id="signInButton">
+                            Login
+                        </button>
+                    </form>
+                    <p style="padding-top: 5px">
+                        Don't have an account? <a href="#" id="signUpLink">Sign Up</a>
+                    </p>
+                    <p>Need help?</p>
+                </div>
+                
+                <div class="login-form" id="signup-form" style="display: none">
+                    <h2>Sign Up</h2>
+                    <form id="signUpForm">
+                        <div class="form-group">
+                            <label for="new-name">Name</label>
+                            <input type="text" id="new-name" name="new-name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="new-email">Email</label>
+                            <input type="email" id="new-email" name="new-email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">Password</label>
+                            <input type="password" id="new-password" name="new-password" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required />
+                        </div>
+                        <button type="submit" class="login-btn" id="signUpButton">
+                            Sign Up
+                        </button>
+                    </form>
+                    <p style="padding-top: 5px">
+                        Have an account? <a href="#" id="signInLink">Login</a>
+                    </p>
+                </div>
             </nav>
-            <div class="auth-buttons">
-                <button id="signUpBtn">Sign Up</button>
-                <button id="logInBtn">Log In</button>
-            </div>
+            
+            <script>
+                // Tambahkan event listener pada tombol login untuk menampilkan form login
+                document.getElementById('loginButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah aksi default tombol (misalnya, pengalihan halaman)
+                    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
+                    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
+                });
+            
+                // Tambahkan event listener pada link "Sign Up" untuk menampilkan form signup
+                document.getElementById('signUpLink').addEventListener('click', function() {
+                    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login
+                    document.getElementById('signup-form').style.display = 'block'; // Tampilkan form signup
+                });
+            
+                // Tambahkan event listener pada link "Login" di form signup untuk kembali ke form login
+                document.getElementById('signInLink').addEventListener('click', function() {
+                    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
+                    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
+                });
+            
+                // Fungsi untuk menyimpan status login ke localStorage dan memperbarui navigasi
+                function setLoginStatus(isLoggedIn) {
+                    localStorage.setItem('isLoggedIn', isLoggedIn); // Simpan status login
+                    if (isLoggedIn) {
+                        localStorage.setItem('loginTime', new Date().getTime()); // Simpan waktu login
+                        setLogoutTimer(); // Set timer untuk logout setelah 1 menit
+                    } else {
+                        clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer jika logout
+                    }
+                    updateNav(); // Perbarui tampilan navigasi
+                }
+            
+                // Fungsi untuk mengatur timer untuk logout setelah 1 menit
+                function setLogoutTimer() {
+                    let logoutTimer = setTimeout(function() {
+                        setLoginStatus(false); // Set status login menjadi false setelah 1 menit
+                        alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
+                    }, 60000); // 1 menit (60000 ms)
+                    localStorage.setItem('logoutTimer', logoutTimer); // Simpan timer ke localStorage
+                }
+            
+                // Fungsi untuk mereset timer jika ada aktivitas yang memperbarui sesi
+                function resetLogoutTimer() {
+                    clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer yang ada
+                    setLogoutTimer(); // Set ulang timer untuk logout setelah 1 menit
+                }
+            
+                // Fungsi untuk memperbarui tampilan navigasi berdasarkan status login
+                function updateNav() {
+                    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Ambil status login dari localStorage
+                    document.getElementById('loginButton').style.display = isLoggedIn ? 'none' : 'inline'; // Tampilkan/Sembunyikan tombol login
+                    document.getElementById('logoutButton').style.display = isLoggedIn ? 'inline' : 'none'; // Tampilkan/Sembunyikan tombol logout
+            
+                    // Periksa waktu login
+                    if (isLoggedIn) {
+                        const loginTime = parseInt(localStorage.getItem('loginTime')); // Ambil waktu login dari localStorage
+                        const currentTime = new Date().getTime(); // Waktu saat ini
+                        const timeElapsed = currentTime - loginTime; // Waktu yang telah berlalu
+            
+                        if (timeElapsed >= 60000) { // Jika waktu yang telah berlalu lebih dari atau sama dengan 1 menit (60000 ms)
+                            setLoginStatus(false); // Set status login menjadi false
+                            alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
+                        }
+                    }
+                }
+            
+                // Tambahkan event listener pada tombol login di form login untuk melakukan proses login
+                document.getElementById('signInButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
+                    let email = document.getElementById('email').value; // Ambil nilai email dari form login
+                    let password = document.getElementById('password').value; // Ambil nilai password dari form login
+                    setLoginStatus(true); // Set status login menjadi true
+                    localStorage.setItem('email', email); // Simpan email ke localStorage
+                    localStorage.setItem('password', password); // Simpan password ke localStorage
+                    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
+                });
+            
+                // Tambahkan event listener pada tombol signup di form signup untuk melakukan proses signup
+                document.getElementById('signUpButton').addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
+                    let name = document.getElementById('new-name').value; // Ambil nilai nama dari form signup
+                    let email = document.getElementById('new-email').value; // Ambil nilai email dari form signup
+                    let password = document.getElementById('new-password').value; // Ambil nilai password dari form signup
+                    let confirmPassword = document.getElementById('confirm-password').value; // Ambil nilai konfirmasi password dari form signup
+                    // Lakukan validasi form signup di sini
+                    // Misalnya, validasi bahwa password dan konfirmasi password cocok
+                    if (password !== confirmPassword) {
+                        alert('Password and Confirm Password do not match.');
+                        return;
+                    }
+                    // Lakukan proses signup sesuai kebutuhan aplikasi Anda
+                    // Contoh: simpan data pengguna ke basis data atau localStorage
+                    // Di sini Anda bisa menambahkan logika untuk menyimpan data pengguna ke basis data
+                    alert('Signup successful!'); // Tampilkan pesan sukses
+                    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup setelah signup
+                    setLoginStatus(true); // Set status login menjadi true setelah signup berhasil
+                    localStorage.setItem('name', name); // Simpan nama ke localStorage
+                    localStorage.setItem('email', email); // Simpan email ke localStorage
+                    localStorage.setItem('password', password); // Simpan password ke localStorage
+                });
+            
+                // Tambahkan event listener pada tombol logout untuk melakukan proses logout
+                document.getElementById('logoutButton').addEventListener('click', function() {
+                    setLoginStatus(false); // Set status login menjadi false
+                    localStorage.removeItem('name'); // Hapus nama dari localStorage
+                    localStorage.removeItem('email'); // Hapus email dari localStorage
+                    localStorage.removeItem('password'); // Hapus password dari localStorage
+                });
+            
+                // Panggil fungsi updateNav saat halaman dimuat
+                window.onload = function() {
+                    updateNav(); // Perbarui tampilan navigasi berdasarkan status login
+                }
+            </script>
+            
+            
+            
+            
+            
         </div>
     </header>
     <section class="showcase">
@@ -102,7 +304,7 @@
             <h2>How do rover drones work in plantations and what are their functions?</h2>
             <div class="how-it-works-box">
                 <div>
-                    <img src="rover-drones-image.png" alt="Rover Drones Image" width="130" height="300">  
+                    <img src="rover-drones-image.png" alt="Rover Drones Image" width="250" height="300">  
                     <p>Rover drones, also known as ground-based drones or ground robots, play a significant role in modern agricultural practices, particularly in plantations. These specialized vehicles combine the mobility of rovers with the capabilities of drones, offering a unique solution for monitoring, data collection, and precision agriculture in agricultural settings. Here's how they work and what their functions are:</p>
                     <button id="learnMoreBtn">Learn More</button>
                     
