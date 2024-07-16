@@ -7,21 +7,22 @@
     <title>Sawit Rover & Drone</title>
     <link rel="stylesheet" href="/src/style/styles.css">
     <style>
-        /* Gaya khusus untuk form signup */
-        #signup-form input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
+       
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <img src="sred-logo.png" alt="SRED Logo" style="height:50px;">
+        <div class="container navbar">
+            <div class="navbar-brand">
+                <img src="sred-logo.png" alt="SRED Logo" style="height:50px;">
+            </div>
+            <div class="burger-menu" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
             <nav>
-                <ul class="nav-ul">
+                <ul class="navbar-links nav-ul">
                     <li><button data-target="#home"><a href="#home">Home</a></button></li>
                     <li><button data-target="#service"><a href="#service">Service</a></button></li>
                     <li><button data-target="#feature"><a href="#feature">Feature</a></button></li>
@@ -109,117 +110,125 @@
             
             <script>
                 // Tambahkan event listener pada tombol login untuk menampilkan form login
-                document.getElementById('loginButton').addEventListener('click', function(event) {
-                    event.preventDefault(); // Mencegah aksi default tombol (misalnya, pengalihan halaman)
-                    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
-                    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
-                });
-            
-                // Tambahkan event listener pada link "Sign Up" untuk menampilkan form signup
-                document.getElementById('signUpLink').addEventListener('click', function() {
-                    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login
-                    document.getElementById('signup-form').style.display = 'block'; // Tampilkan form signup
-                });
-            
-                // Tambahkan event listener pada link "Login" di form signup untuk kembali ke form login
-                document.getElementById('signInLink').addEventListener('click', function() {
-                    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
-                    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
-                });
-            
-                // Fungsi untuk menyimpan status login ke localStorage dan memperbarui navigasi
-                function setLoginStatus(isLoggedIn) {
-                    localStorage.setItem('isLoggedIn', isLoggedIn); // Simpan status login
-                    if (isLoggedIn) {
-                        localStorage.setItem('loginTime', new Date().getTime()); // Simpan waktu login
-                        setLogoutTimer(); // Set timer untuk logout setelah 1 menit
-                    } else {
-                        clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer jika logout
-                    }
-                    updateNav(); // Perbarui tampilan navigasi
-                }
-            
-                // Fungsi untuk mengatur timer untuk logout setelah 1 menit
-                function setLogoutTimer() {
-                    let logoutTimer = setTimeout(function() {
-                        setLoginStatus(false); // Set status login menjadi false setelah 1 menit
-                        alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
-                    }, 60000); // 1 menit (60000 ms)
-                    localStorage.setItem('logoutTimer', logoutTimer); // Simpan timer ke localStorage
-                }
-            
-                // Fungsi untuk mereset timer jika ada aktivitas yang memperbarui sesi
-                function resetLogoutTimer() {
-                    clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer yang ada
-                    setLogoutTimer(); // Set ulang timer untuk logout setelah 1 menit
-                }
-            
-                // Fungsi untuk memperbarui tampilan navigasi berdasarkan status login
-                function updateNav() {
-                    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Ambil status login dari localStorage
-                    document.getElementById('loginButton').style.display = isLoggedIn ? 'none' : 'inline'; // Tampilkan/Sembunyikan tombol login
-                    document.getElementById('logoutButton').style.display = isLoggedIn ? 'inline' : 'none'; // Tampilkan/Sembunyikan tombol logout
-            
-                    // Periksa waktu login
-                    if (isLoggedIn) {
-                        const loginTime = parseInt(localStorage.getItem('loginTime')); // Ambil waktu login dari localStorage
-                        const currentTime = new Date().getTime(); // Waktu saat ini
-                        const timeElapsed = currentTime - loginTime; // Waktu yang telah berlalu
-            
-                        if (timeElapsed >= 60000) { // Jika waktu yang telah berlalu lebih dari atau sama dengan 1 menit (60000 ms)
-                            setLoginStatus(false); // Set status login menjadi false
-                            alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
-                        }
-                    }
-                }
-            
-                // Tambahkan event listener pada tombol login di form login untuk melakukan proses login
-                document.getElementById('signInButton').addEventListener('click', function(event) {
-                    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
-                    let email = document.getElementById('email').value; // Ambil nilai email dari form login
-                    let password = document.getElementById('password').value; // Ambil nilai password dari form login
-                    setLoginStatus(true); // Set status login menjadi true
-                    localStorage.setItem('email', email); // Simpan email ke localStorage
-                    localStorage.setItem('password', password); // Simpan password ke localStorage
-                    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
-                });
-            
-                // Tambahkan event listener pada tombol signup di form signup untuk melakukan proses signup
-                document.getElementById('signUpButton').addEventListener('click', function(event) {
-                    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
-                    let name = document.getElementById('new-name').value; // Ambil nilai nama dari form signup
-                    let email = document.getElementById('new-email').value; // Ambil nilai email dari form signup
-                    let password = document.getElementById('new-password').value; // Ambil nilai password dari form signup
-                    let confirmPassword = document.getElementById('confirm-password').value; // Ambil nilai konfirmasi password dari form signup
-                    // Lakukan validasi form signup di sini
-                    // Misalnya, validasi bahwa password dan konfirmasi password cocok
-                    if (password !== confirmPassword) {
-                        alert('Password and Confirm Password do not match.');
-                        return;
-                    }
-                    // Lakukan proses signup sesuai kebutuhan aplikasi Anda
-                    // Contoh: simpan data pengguna ke basis data atau localStorage
-                    // Di sini Anda bisa menambahkan logika untuk menyimpan data pengguna ke basis data
-                    alert('Signup successful!'); // Tampilkan pesan sukses
-                    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup setelah signup
-                    setLoginStatus(true); // Set status login menjadi true setelah signup berhasil
-                    localStorage.setItem('name', name); // Simpan nama ke localStorage
-                    localStorage.setItem('email', email); // Simpan email ke localStorage
-                    localStorage.setItem('password', password); // Simpan password ke localStorage
-                });
-            
-                // Tambahkan event listener pada tombol logout untuk melakukan proses logout
-                document.getElementById('logoutButton').addEventListener('click', function() {
-                    setLoginStatus(false); // Set status login menjadi false
-                    localStorage.removeItem('name'); // Hapus nama dari localStorage
-                    localStorage.removeItem('email'); // Hapus email dari localStorage
-                    localStorage.removeItem('password'); // Hapus password dari localStorage
-                });
-            
-                // Panggil fungsi updateNav saat halaman dimuat
-                window.onload = function() {
-                    updateNav(); // Perbarui tampilan navigasi berdasarkan status login
-                }
+document.getElementById('loginButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah aksi default tombol (misalnya, pengalihan halaman)
+    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
+    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
+});
+
+// Tambahkan event listener pada link "Sign Up" untuk menampilkan form signup
+document.getElementById('signUpLink').addEventListener('click', function() {
+    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login
+    document.getElementById('signup-form').style.display = 'block'; // Tampilkan form signup
+});
+
+// Tambahkan event listener pada link "Login" di form signup untuk kembali ke form login
+document.getElementById('signInLink').addEventListener('click', function() {
+    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
+    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
+});
+
+// Fungsi untuk menyimpan status login ke localStorage dan memperbarui navigasi
+function setLoginStatus(isLoggedIn) {
+    localStorage.setItem('isLoggedIn', isLoggedIn); // Simpan status login
+    if (isLoggedIn) {
+        localStorage.setItem('loginTime', new Date().getTime()); // Simpan waktu login
+        setLogoutTimer(); // Set timer untuk logout setelah 1 menit
+    } else {
+        clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer jika logout
+    }
+    updateNav(); // Perbarui tampilan navigasi
+}
+
+// Fungsi untuk mengatur timer untuk logout setelah 1 menit
+function setLogoutTimer() {
+    let logoutTimer = setTimeout(function() {
+        setLoginStatus(false); // Set status login menjadi false setelah 1 menit
+        alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
+    }, 60000); // 1 menit (60000 ms)
+    localStorage.setItem('logoutTimer', logoutTimer); // Simpan timer ke localStorage
+}
+
+// Fungsi untuk mereset timer jika ada aktivitas yang memperbarui sesi
+function resetLogoutTimer() {
+    clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer yang ada
+    setLogoutTimer(); // Set ulang timer untuk logout setelah 1 menit
+}
+
+// Fungsi untuk memperbarui tampilan navigasi berdasarkan status login
+function updateNav() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Ambil status login dari localStorage
+    document.getElementById('loginButton').style.display = isLoggedIn ? 'none' : 'inline'; // Tampilkan/Sembunyikan tombol login
+    document.getElementById('logoutButton').style.display = isLoggedIn ? 'inline' : 'none'; // Tampilkan/Sembunyikan tombol logout
+
+    // Periksa waktu login
+    if (isLoggedIn) {
+        const loginTime = parseInt(localStorage.getItem('loginTime')); // Ambil waktu login dari localStorage
+        const currentTime = new Date().getTime(); // Waktu saat ini
+        const timeElapsed = currentTime - loginTime; // Waktu yang telah berlalu
+
+        if (timeElapsed >= 60000) { // Jika waktu yang telah berlalu lebih dari atau sama dengan 1 menit (60000 ms)
+            setLoginStatus(false); // Set status login menjadi false
+            alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
+        }
+    }
+}
+
+// Tambahkan event listener pada tombol login di form login untuk melakukan proses login
+document.getElementById('signInButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
+    let email = document.getElementById('email').value; // Ambil nilai email dari form login
+    let password = document.getElementById('password').value; // Ambil nilai password dari form login
+    setLoginStatus(true); // Set status login menjadi true
+    localStorage.setItem('email', email); // Simpan email ke localStorage
+    localStorage.setItem('password', password); // Simpan password ke localStorage
+    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
+});
+
+// Tambahkan event listener pada tombol signup di form signup untuk melakukan proses signup
+document.getElementById('signUpButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
+    let name = document.getElementById('new-name').value; // Ambil nilai nama dari form signup
+    let email = document.getElementById('new-email').value; // Ambil nilai email dari form signup
+    let password = document.getElementById('new-password').value; // Ambil nilai password dari form signup
+    let confirmPassword = document.getElementById('confirm-password').value; // Ambil nilai konfirmasi password dari form signup
+    // Lakukan validasi form signup di sini
+    // Misalnya, validasi bahwa password dan konfirmasi password cocok
+    if (password !== confirmPassword) {
+        alert('Password and Confirm Password do not match.');
+        return;
+    }
+    // Lakukan proses signup sesuai kebutuhan aplikasi Anda
+    // Contoh: simpan data pengguna ke basis data atau localStorage
+    // Di sini Anda bisa menambahkan logika untuk menyimpan data pengguna ke basis data
+    alert('Signup successful!'); // Tampilkan pesan sukses
+    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup setelah signup
+    setLoginStatus(true); // Set status login menjadi true setelah signup berhasil
+    localStorage.setItem('name', name); // Simpan nama ke localStorage
+    localStorage.setItem('email', email); // Simpan email ke localStorage
+    localStorage.setItem('password', password); // Simpan password ke localStorage
+});
+
+// Tambahkan event listener pada tombol logout untuk melakukan proses logout
+document.getElementById('logoutButton').addEventListener('click', function() {
+    setLoginStatus(false); // Set status login menjadi false
+    localStorage.removeItem('name'); // Hapus nama dari localStorage
+    localStorage.removeItem('email'); // Hapus email dari localStorage
+    localStorage.removeItem('password'); // Hapus password dari localStorage
+});
+
+// Panggil fungsi updateNav saat halaman dimuat
+window.onload = function() {
+    updateNav(); // Perbarui tampilan navigasi berdasarkan status login
+}
+
+
+
+
+function toggleMenu() {
+const navbarLinks = document.querySelector('.navbar-links');
+navbarLinks.classList.toggle('active');
+}
             </script>
             
             
@@ -352,6 +361,7 @@
             </div>
         </div>
     </footer>
-    <script src="bundle.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
+ 
