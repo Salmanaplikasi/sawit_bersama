@@ -402,3 +402,13 @@ footer .email-updates button {
         display: flex;
     }
 }
+
+
+
+
+.showcase {
+    display: none; /* Semua section awalnya disembunyikan */
+}
+.showcase.active {
+    display: block; /* Hanya section yang aktif yang ditampilkan */
+}

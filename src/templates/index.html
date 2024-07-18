@@ -7,7 +7,8 @@
     <title>Sawit Rover & Drone</title>
     <link rel="stylesheet" href="/src/style/styles.css">
     <style>
-       
+    
+    
     </style>
 </head>
 <body>
@@ -23,88 +24,88 @@
             </div>
             <nav>
                 <ul class="navbar-links nav-ul">
-                    <li><button data-target="#home"><a href="#home">Home</a></button></li>
-                    <li><button data-target="#service"><a href="#service">Service</a></button></li>
-                    <li><button data-target="#feature"><a href="#feature">Feature</a></button></li>
-                    <li><button data-target="#product"><a href="#product">Product</a></button></li>
-                    <li><button data-target="#testimonial"><a href="#testimonial">Testimonial</a></button></li>
-                    <li>
-                        <button id="loginButton" style="display: inline;">
-                            <a href="#/Login" id="loginLink"
-                               style="
-                                   color: #2d511d;
-                                   font-weight: bold;
-                                   border-radius: 20px;
-                                   width: 95px;
-                                   background-color: white;
-                                   text-align: center;
-                               ">Login</a>
-                        </button>
-                        <button id="logoutButton" style="display: none;">
-                            <a href="#/Logout" id="logoutLink"
-                               style="
-                                   color: #2d511d;
-                                   font-weight: bold;
-                                   border-radius: 20px;
-                                   width: 95px;
-                                   background-color: white;
-                                   text-align: center;
-                               ">Logout</a>
-                        </button>
-                    </li>
-                </ul>
-                
-                <div class="login-form" id="login-form" style="display: none">
-                    <h2>Sign In</h2>
-                    <form id="signInForm">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required />
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" id="remember-me" name="remember-me" />
-                            <label for="remember-me">Remember Me</label>
-                        </div>
-                        <button type="submit" class="login-btn" id="signInButton">
-                            Login
-                        </button>
-                    </form>
-                    <p style="padding-top: 5px">
-                        Don't have an account? <a href="#" id="signUpLink">Sign Up</a>
-                    </p>
-                    <p>Need help?</p>
-                </div>
-                
-                <div class="login-form" id="signup-form" style="display: none">
-                    <h2>Sign Up</h2>
-                    <form id="signUpForm">
-                        <div class="form-group">
-                            <label for="new-name">Name</label>
-                            <input type="text" id="new-name" name="new-name" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="new-email">Email</label>
-                            <input type="email" id="new-email" name="new-email" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="new-password">Password</label>
-                            <input type="password" id="new-password" name="new-password" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required />
-                        </div>
-                        <button type="submit" class="login-btn" id="signUpButton">
-                            Sign Up
-                        </button>
-                    </form>
-                    <p style="padding-top: 5px">
-                        Have an account? <a href="#" id="signInLink">Login</a>
-                    </p>
+                  <li><button data-target="#home"><a href="#home" class="nav-link">Home</a></button></li>
+    <li><button data-target="#service"><a href="#service" class="nav-link">Service</a></button></li>
+    <li><button data-target="#feature"><a href="#feature" class="nav-link">Feature</a></button></li>
+    <li><button data-target="#product"><a href="#product" class="nav-link">Product</a></button></li>
+    <li><button data-target="#testimonial"><a href="#testimonial" class="nav-link">Testimonial</a></button></li>
+    <li>
+        <button id="loginButton" style="display: inline;">
+            <a href="#/Login" id="loginLink"
+               style="
+                   color: #2d511d;
+                   font-weight: bold;
+                   border-radius: 20px;
+                   width: 95px;
+                   background-color: white;
+                   text-align: center;
+               ">Login</a>
+        </button>
+        <button id="logoutButton" style="display: none;">
+            <a href="#/Logout" id="logoutLink"
+               style="
+                   color: #2d511d;
+                   font-weight: bold;
+                   border-radius: 20px;
+                   width: 95px;
+                   background-color: white;
+                   text-align: center;
+               ">Logout</a>
+        </button>
+    </li>
+</ul>
+
+<div class="login-form" id="login-form" style="display: none">
+    <h2>Sign In</h2>
+    <form id="signInForm">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="remember-me" name="remember-me" />
+            <label for="remember-me">Remember Me</label>
+        </div>
+        <button type="submit" class="login-btn" id="signInButton">
+            Login
+        </button>
+    </form>
+    <p style="padding-top: 5px">
+        Don't have an account? <a href="#" id="signUpLink">Sign Up</a>
+    </p>
+    <p>Need help?</p>
+</div>
+
+<div class="login-form" id="signup-form" style="display: none">
+    <h2>Sign Up</h2>
+    <form id="signUpForm">
+        <div class="form-group">
+            <label for="new-name">Name</label>
+            <input type="text" id="new-name" name="new-name" required />
+        </div>
+        <div class="form-group">
+            <label for="new-email">Email</label>
+            <input type="email" id="new-email" name="new-email" required />
+        </div>
+        <div class="form-group">
+            <label for="new-password">Password</label>
+            <input type="password" id="new-password" name="new-password" required />
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required />
+        </div>
+        <button type="submit" class="login-btn" id="signUpButton">
+            Sign Up
+        </button>
+    </form>
+    <p style="padding-top: 5px">
+        Have an account? <a href="#" id="signInLink">Login</a>
+    </p>
                 </div>
             </nav>
             
@@ -229,6 +230,54 @@ function toggleMenu() {
 const navbarLinks = document.querySelector('.navbar-links');
 navbarLinks.classList.toggle('active');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var menuButtons = document.querySelectorAll('nav ul li button');
+
+    menuButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var target = button.dataset.target; // Mendapatkan target dari data-target
+            var sectionToShow = document.querySelector(target); // Memilih section dengan id yang sesuai
+
+            if (sectionToShow) {
+                // Menyembunyikan semua section showcase
+                var sections = document.querySelectorAll('.showcase');
+                sections.forEach(function(section) {
+                    section.classList.remove('active');
+                });
+
+                // Menampilkan hanya section yang sesuai
+                sectionToShow.classList.add('active');
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </script>
             
             
@@ -237,10 +286,10 @@ navbarLinks.classList.toggle('active');
             
         </div>
     </header>
-    <section class="showcase">
+    <section id="home" class="showcase active">
         <div class="container">
             <img src="hero-image.png" alt="Hero Image" style="width:100%; max-width:500px;">
-            <h1 id="home">Sawit Rover & Drone</h1>
+            <h1>Sawit Rover & Drone</h1>
             <p>Welcome to our innovative platform: "SRED". We present you with a cutting-edge solution for efficient and secure monitoring and data recording from drones and rovers, utilizing blockchain technology.</p>
             <button id="getProductBtn">Get Product</button>
             <div>
@@ -251,64 +300,63 @@ navbarLinks.classList.toggle('active');
 
 
 
-    <section class="info-section" id="service">
+    <section id="service" class="showcase">
         <div class="container">
             <h2>Palm Oil Community Information</h2>
             <div class="info-box">
                 <div>
-                    <img src="membership-icon.png" alt="Membership Icon">
+                    <img src="membership-icon.png" alt="Membership Icon" style="width: 100px; height: auto; margin-bottom: 10px;">
                     <h3>Membership Organisations</h3>
                     <p>Palm oil company organizations existing in various countries, to support the global palm oil demand.</p>
                 </div>
                 <div>
-                    <img src="national-icon.png" alt="National Associations Icon">
+                    <img src="national-icon.png" alt="National Associations Icon" style="width: 120px; height: auto; margin-bottom: 10px;">
                     <h3>National Associations</h3>
                     <p>Palm oil company organizations existing in various countries, to support the global palm oil demand.</p>
                 </div>
                 <div>
-                    <img src="clubs-icon.png" alt="Clubs and Groups Icon">
+                    <img src="clubs-icon.png" alt="Clubs and Groups Icon" style="width: 110px; height: auto; margin-bottom: 10px;">
                     <h3>Clubs And Groups</h3>
                     <p>Groups of palm oil companies that exist in response to global palm oil issues.</p>
                 </div>
             </div>
         </div>
-
-        <div>
+    
+        <div class="container">
             <div style="margin-top: 60px; margin-bottom: 60px;">
-                <img src="health-plants-image.png" alt="plants Image" width="400" height="200">
+                <img src="health-plants-image.png" alt="Plants Image" width="50" height="25" style="width: 50%; height: auto; margin-top: 20px; margin-bottom: 20px;">
                 <h3>How to Determine the Health of Oil Palm Plants?</h3>
-                <p>Certainly, assessing the health of oil palm plants involves observing various indicators and factors that can provide insights into their well-being. Here are some methods and aspects to consider when determining the health of oil palm plants</p>
+                <p>Certainly, assessing the health of oil palm plants involves observing various indicators and factors that can provide insights into their well-being. Here are some methods and aspects to consider when determining the health of oil palm plants.</p>
                 <button>Learn More</button>
             </div>
         </div>
     </section>
 
 
-    <section class="offer-section" id="feature">
+    <section id="feature" class="showcase">
         <div class="container">
             <h2>What do we offer?</h2>
             <div class="offer-box">
                 <div>
-                    <img src="security-icon.png" alt="Security Guarantee Icon">
+                    <img src="security-icon.png" alt="Security Guarantee Icon" style="width: 100px; height: auto; margin-bottom: 10px;">
                     <h3>Security Guarantee</h3>
                     <p>Your data and funds will be securely protected.</p>
                 </div>
                 <div>
-                    <img src="monitoring-icon.png" alt="Monitoring Icon">
+                    <img src="monitoring-icon.png" alt="Monitoring Icon" style="width: 120px; height: auto; margin-bottom: 10px;">
                     <h3>Monitoring</h3>
                     <p>You can monitor your drone and its data in real-time.</p>
                 </div>
                 <div>
-                    <img src="multiple-icon.png" alt="Multiple Method Icon">
+                    <img src="multiple-icon.png" alt="Multiple Method Icon" style="width: 110px; height: auto; margin-bottom: 10px;">
                     <h3>Multiple Method</h3>
                     <p>Your data and funds will be securely protected.</p>
                 </div>
             </div>
         </div>
     </section>
-
     
-    <section class="how-it-works-section" id="product">
+    <section id="product" class="showcase">
         <div class="container">
             <h2>How do rover drones work in plantations and what are their functions?</h2>
             <div class="how-it-works-box">
@@ -316,7 +364,6 @@ navbarLinks.classList.toggle('active');
                     <img src="rover-drones-image.png" alt="Rover Drones Image" width="250" height="300">  
                     <p>Rover drones, also known as ground-based drones or ground robots, play a significant role in modern agricultural practices, particularly in plantations. These specialized vehicles combine the mobility of rovers with the capabilities of drones, offering a unique solution for monitoring, data collection, and precision agriculture in agricultural settings. Here's how they work and what their functions are:</p>
                     <button id="learnMoreBtn">Learn More</button>
-                    
                 </div>
             </div>
         </div>
@@ -324,7 +371,7 @@ navbarLinks.classList.toggle('active');
 
     
 
-    <section class="cta-section" id="testimonial">
+    <section id="testimonial" class="showcase">
         <div class="container">
             <h2>Get Our Rover & Drone Products Now</h2>
             <button id="getDemoBtn">Get a Demo</button>
