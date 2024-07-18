@@ -243,41 +243,137 @@ navbarLinks.classList.toggle('active');
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    var menuButtons = document.querySelectorAll('nav ul li button');
+    var isLoggedIn = false; // Ganti dengan logika Anda untuk menentukan status login
 
-    menuButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var target = button.dataset.target; // Mendapatkan target dari data-target
-            var sectionToShow = document.querySelector(target); // Memilih section dengan id yang sesuai
+    // Function untuk menampilkan section sesuai dengan tombol menu yang diklik
+    function showSection(target) {
+        // Menghapus kelas 'active' dari semua section
+        var sections = document.querySelectorAll('section');
+        sections.forEach(function(section) {
+            section.classList.remove('active');
+        });
 
-            if (sectionToShow) {
-                // Menyembunyikan semua section showcase
-                var sections = document.querySelectorAll('.showcase');
-                sections.forEach(function(section) {
-                    section.classList.remove('active');
-                });
+        // Menambahkan kelas 'active' pada section yang sesuai dengan target
+        var section = document.querySelector(target);
+        if (section) {
+            section.classList.add('active');
+        }
+    }
 
-                // Menampilkan hanya section yang sesuai
-                sectionToShow.classList.add('active');
+    // Event listener untuk setiap tombol menu
+    document.querySelectorAll('button[data-target]').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (isLoggedIn) {
+                var target = button.getAttribute('data-target');
+                showSection(target);
             }
         });
     });
+
+    // Fungsi untuk menangani klik pada link dalam menu
+    function handleMenuClick(event) {
+        var target = event.target;
+        if (target.tagName.toLowerCase() === 'a') {
+            var href = target.getAttribute('href');
+            var dataTarget = target.parentNode.getAttribute('data-target');
+            var targetId = href || dataTarget;
+            if (isLoggedIn) {
+                showSection(targetId);
+            }
+        }
+    }
+
+    // Event listener untuk setiap <li> dengan class 'nav-item'
+    document.querySelectorAll('li.nav-item').forEach(function(item) {
+        item.addEventListener('click', handleMenuClick);
+    });
+
+    // Fungsi untuk menampilkan atau menyembunyikan menu berdasarkan status login
+    function toggleMenus() {
+        var menus = document.querySelectorAll('li.nav-item');
+        menus.forEach(function(menu) {
+            if (isLoggedIn) {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+    }
+
+    // Panggil fungsi toggleMenus saat halaman dimuat
+    toggleMenus();
 });
 
 
+// Fungsi untuk memeriksa status login dan mengatur tampilan tombol menu
+function toggleMenus() {
+    var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
+    var menus = document.querySelectorAll('li.nav-item');
+    menus.forEach(function(menu) {
+        if (isLoggedIn) {
+            menu.style.display = 'block'; // Tampilkan tombol menu jika sudah login
+        } else {
+            menu.style.display = 'none'; // Sembunyikan tombol menu jika belum login
+        }
+    });
+}
 
+// Event listener untuk setiap tombol menu
+document.querySelectorAll('button[data-target]').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
+        if (isLoggedIn) {
+            var target = button.getAttribute('data-target');
+            showSection(target);
+        }
+    });
+});
 
+// Fungsi untuk menampilkan section yang sesuai dengan tombol menu yang diklik
+function showSection(target) {
+    var sections = document.querySelectorAll('section');
+    sections.forEach(function(section) {
+        section.classList.remove('active'); // Hapus kelas 'active' dari semua section
+    });
+    var section = document.querySelector(target);
+    if (section) {
+        section.classList.add('active'); // Tambahkan kelas 'active' pada section yang sesuai dengan target
+    }
+}
 
+// Event listener untuk setiap <li> dengan class 'nav-item'
+document.querySelectorAll('li.nav-item').forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
+        if (!isLoggedIn) {
+            event.preventDefault(); // Mencegah aksi default jika belum login
+        } else {
+            handleMenuClick(event); // Panggil fungsi untuk menangani klik pada menu
+        }
+    });
+});
 
+// Fungsi untuk menangani klik pada link dalam menu
+function handleMenuClick(event) {
+    var target = event.target;
+    if (target.tagName.toLowerCase() === 'a') {
+        var href = target.getAttribute('href');
+        var dataTarget = target.parentNode.getAttribute('data-target');
+        var targetId = href || dataTarget;
+        showSection(targetId); // Panggil fungsi untuk menampilkan section yang sesuai dengan target
+    }
+}
 
-
-
-
-
-
-
-
+// Panggil fungsi toggleMenus saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    toggleMenus(); // Perbarui tampilan menu berdasarkan status login saat halaman dimuat
+});
             </script>
             
             
