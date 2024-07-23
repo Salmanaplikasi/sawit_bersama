@@ -27,6 +27,7 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "express": "^4.19.2",
     "http-server": "^14.1.1",
     "regenerator-runtime": "^0.14.1"
   }

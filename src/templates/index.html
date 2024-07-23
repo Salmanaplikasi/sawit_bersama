@@ -110,270 +110,146 @@
             </nav>
             
             <script>
-                // Tambahkan event listener pada tombol login untuk menampilkan form login
+        // Menampilkan form login saat tombol login diklik
 document.getElementById('loginButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Mencegah aksi default tombol (misalnya, pengalihan halaman)
+    event.preventDefault();
     document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
     document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
 });
 
-// Tambahkan event listener pada link "Sign Up" untuk menampilkan form signup
+// Menampilkan form signup saat link "Sign Up" diklik
 document.getElementById('signUpLink').addEventListener('click', function() {
     document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login
     document.getElementById('signup-form').style.display = 'block'; // Tampilkan form signup
 });
 
-// Tambahkan event listener pada link "Login" di form signup untuk kembali ke form login
+// Kembali ke form login dari form signup
 document.getElementById('signInLink').addEventListener('click', function() {
     document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
     document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
 });
 
-// Fungsi untuk menyimpan status login ke localStorage dan memperbarui navigasi
+// Menyimpan status login dan memperbarui tampilan navigasi
 function setLoginStatus(isLoggedIn) {
     localStorage.setItem('isLoggedIn', isLoggedIn); // Simpan status login
-    if (isLoggedIn) {
-        localStorage.setItem('loginTime', new Date().getTime()); // Simpan waktu login
-        setLogoutTimer(); // Set timer untuk logout setelah 1 menit
-    } else {
-        clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer jika logout
+    if (!isLoggedIn) {
+        localStorage.removeItem('loginTime'); // Hapus waktu login jika logout
     }
     updateNav(); // Perbarui tampilan navigasi
 }
 
-// Fungsi untuk mengatur timer untuk logout setelah 1 menit
-function setLogoutTimer() {
-    let logoutTimer = setTimeout(function() {
-        setLoginStatus(false); // Set status login menjadi false setelah 1 menit
-        alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
-    }, 60000); // 1 menit (60000 ms)
-    localStorage.setItem('logoutTimer', logoutTimer); // Simpan timer ke localStorage
-}
-
-// Fungsi untuk mereset timer jika ada aktivitas yang memperbarui sesi
-function resetLogoutTimer() {
-    clearTimeout(localStorage.getItem('logoutTimer')); // Hapus timer yang ada
-    setLogoutTimer(); // Set ulang timer untuk logout setelah 1 menit
-}
-
-// Fungsi untuk memperbarui tampilan navigasi berdasarkan status login
+// Memperbarui tampilan navigasi berdasarkan status login
 function updateNav() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Ambil status login dari localStorage
     document.getElementById('loginButton').style.display = isLoggedIn ? 'none' : 'inline'; // Tampilkan/Sembunyikan tombol login
     document.getElementById('logoutButton').style.display = isLoggedIn ? 'inline' : 'none'; // Tampilkan/Sembunyikan tombol logout
-
-    // Periksa waktu login
-    if (isLoggedIn) {
-        const loginTime = parseInt(localStorage.getItem('loginTime')); // Ambil waktu login dari localStorage
-        const currentTime = new Date().getTime(); // Waktu saat ini
-        const timeElapsed = currentTime - loginTime; // Waktu yang telah berlalu
-
-        if (timeElapsed >= 60000) { // Jika waktu yang telah berlalu lebih dari atau sama dengan 1 menit (60000 ms)
-            setLoginStatus(false); // Set status login menjadi false
-            alert('Session expired. Please log in again.'); // Tampilkan pesan sesi habis
-        }
-    }
 }
 
-// Tambahkan event listener pada tombol login di form login untuk melakukan proses login
+// Menangani proses login
 document.getElementById('signInButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
-    let email = document.getElementById('email').value; // Ambil nilai email dari form login
-    let password = document.getElementById('password').value; // Ambil nilai password dari form login
-    setLoginStatus(true); // Set status login menjadi true
-    localStorage.setItem('email', email); // Simpan email ke localStorage
-    localStorage.setItem('password', password); // Simpan password ke localStorage
-    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
+    event.preventDefault();
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    if (email === 'salman21@gmail.com' && password === '12345') {
+        alert("Login successful!");
+        setLoginStatus(true); // Set status login menjadi true
+        localStorage.setItem('email', email); // Simpan email ke localStorage
+        document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
+        window.location.href = "home-user.html"; // Arahkan ke halaman yang diinginkan
+    } else {
+        alert("Wrong entry. Invalid credentials.");
+    }
 });
 
-// Tambahkan event listener pada tombol signup di form signup untuk melakukan proses signup
+// Menangani proses signup
 document.getElementById('signUpButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Mencegah aksi default form (misalnya, pengiriman form)
-    let name = document.getElementById('new-name').value; // Ambil nilai nama dari form signup
-    let email = document.getElementById('new-email').value; // Ambil nilai email dari form signup
-    let password = document.getElementById('new-password').value; // Ambil nilai password dari form signup
-    let confirmPassword = document.getElementById('confirm-password').value; // Ambil nilai konfirmasi password dari form signup
-    // Lakukan validasi form signup di sini
-    // Misalnya, validasi bahwa password dan konfirmasi password cocok
+    event.preventDefault();
+    let name = document.getElementById('new-name').value;
+    let email = document.getElementById('new-email').value;
+    let password = document.getElementById('new-password').value;
+    let confirmPassword = document.getElementById('confirm-password').value;
+
     if (password !== confirmPassword) {
         alert('Password and Confirm Password do not match.');
         return;
     }
-    // Lakukan proses signup sesuai kebutuhan aplikasi Anda
-    // Contoh: simpan data pengguna ke basis data atau localStorage
-    // Di sini Anda bisa menambahkan logika untuk menyimpan data pengguna ke basis data
+
     alert('Signup successful!'); // Tampilkan pesan sukses
     document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup setelah signup
     setLoginStatus(true); // Set status login menjadi true setelah signup berhasil
     localStorage.setItem('name', name); // Simpan nama ke localStorage
     localStorage.setItem('email', email); // Simpan email ke localStorage
-    localStorage.setItem('password', password); // Simpan password ke localStorage
+    // Jangan simpan password di localStorage
 });
 
-// Tambahkan event listener pada tombol logout untuk melakukan proses logout
+// Menangani proses logout
 document.getElementById('logoutButton').addEventListener('click', function() {
     setLoginStatus(false); // Set status login menjadi false
     localStorage.removeItem('name'); // Hapus nama dari localStorage
     localStorage.removeItem('email'); // Hapus email dari localStorage
-    localStorage.removeItem('password'); // Hapus password dari localStorage
+    // Jangan hapus password dari localStorage
 });
 
-// Panggil fungsi updateNav saat halaman dimuat
-window.onload = function() {
-    updateNav(); // Perbarui tampilan navigasi berdasarkan status login
-}
-
-
-
-
-function toggleMenu() {
-const navbarLinks = document.querySelector('.navbar-links');
-navbarLinks.classList.toggle('active');
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var isLoggedIn = false; // Ganti dengan logika Anda untuk menentukan status login
-
-    // Function untuk menampilkan section sesuai dengan tombol menu yang diklik
-    function showSection(target) {
-        // Menghapus kelas 'active' dari semua section
-        var sections = document.querySelectorAll('section');
-        sections.forEach(function(section) {
-            section.classList.remove('active');
-        });
-
-        // Menambahkan kelas 'active' pada section yang sesuai dengan target
-        var section = document.querySelector(target);
-        if (section) {
-            section.classList.add('active');
-        }
-    }
-
-    // Event listener untuk setiap tombol menu
-    document.querySelectorAll('button[data-target]').forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            if (isLoggedIn) {
-                var target = button.getAttribute('data-target');
-                showSection(target);
-            }
-        });
-    });
-
-    // Fungsi untuk menangani klik pada link dalam menu
-    function handleMenuClick(event) {
-        var target = event.target;
-        if (target.tagName.toLowerCase() === 'a') {
-            var href = target.getAttribute('href');
-            var dataTarget = target.parentNode.getAttribute('data-target');
-            var targetId = href || dataTarget;
-            if (isLoggedIn) {
-                showSection(targetId);
-            }
-        }
-    }
-
-    // Event listener untuk setiap <li> dengan class 'nav-item'
-    document.querySelectorAll('li.nav-item').forEach(function(item) {
-        item.addEventListener('click', handleMenuClick);
-    });
-
-    // Fungsi untuk menampilkan atau menyembunyikan menu berdasarkan status login
-    function toggleMenus() {
-        var menus = document.querySelectorAll('li.nav-item');
-        menus.forEach(function(menu) {
-            if (isLoggedIn) {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-    }
-
-    // Panggil fungsi toggleMenus saat halaman dimuat
-    toggleMenus();
-});
-
-
-// Fungsi untuk memeriksa status login dan mengatur tampilan tombol menu
-function toggleMenus() {
-    var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
-    var menus = document.querySelectorAll('li.nav-item');
-    menus.forEach(function(menu) {
-        if (isLoggedIn) {
-            menu.style.display = 'block'; // Tampilkan tombol menu jika sudah login
-        } else {
-            menu.style.display = 'none'; // Sembunyikan tombol menu jika belum login
-        }
-    });
-}
-
-// Event listener untuk setiap tombol menu
-document.querySelectorAll('button[data-target]').forEach(function(button) {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
-        var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
-        if (isLoggedIn) {
-            var target = button.getAttribute('data-target');
-            showSection(target);
-        }
-    });
-});
-
-// Fungsi untuk menampilkan section yang sesuai dengan tombol menu yang diklik
+// Menampilkan section sesuai dengan tombol menu yang diklik
 function showSection(target) {
     var sections = document.querySelectorAll('section');
     sections.forEach(function(section) {
-        section.classList.remove('active'); // Hapus kelas 'active' dari semua section
+        section.classList.remove('active');
     });
+
     var section = document.querySelector(target);
     if (section) {
-        section.classList.add('active'); // Tambahkan kelas 'active' pada section yang sesuai dengan target
+        section.classList.add('active');
     }
 }
 
-// Event listener untuk setiap <li> dengan class 'nav-item'
-document.querySelectorAll('li.nav-item').forEach(function(item) {
-    item.addEventListener('click', function(event) {
-        var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
-        if (!isLoggedIn) {
-            event.preventDefault(); // Mencegah aksi default jika belum login
-        } else {
-            handleMenuClick(event); // Panggil fungsi untuk menangani klik pada menu
-        }
+// Menangani klik pada tombol menu
+document.querySelectorAll('button[data-target]').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        var target = button.getAttribute('data-target');
+        showSection(target);
     });
 });
 
-// Fungsi untuk menangani klik pada link dalam menu
+// Menangani klik pada link dalam menu
 function handleMenuClick(event) {
     var target = event.target;
     if (target.tagName.toLowerCase() === 'a') {
         var href = target.getAttribute('href');
         var dataTarget = target.parentNode.getAttribute('data-target');
         var targetId = href || dataTarget;
-        showSection(targetId); // Panggil fungsi untuk menampilkan section yang sesuai dengan target
+        showSection(targetId);
     }
 }
 
-// Panggil fungsi toggleMenus saat halaman dimuat
-document.addEventListener('DOMContentLoaded', function() {
-    toggleMenus(); // Perbarui tampilan menu berdasarkan status login saat halaman dimuat
+// Menambahkan event listener untuk setiap <li> dengan class 'nav-item'
+document.querySelectorAll('li.nav-item').forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        handleMenuClick(event); // Panggil fungsi untuk menangani klik pada menu
+    });
 });
+
+// Menampilkan atau menyembunyikan menu berdasarkan status login
+function toggleMenus() {
+    var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
+    var menus = document.querySelectorAll('li.nav-item');
+    menus.forEach(function(menu) {
+        menu.style.display = isLoggedIn ? 'block' : 'none'; // Tampilkan/Sembunyikan menu
+    });
+}
+
+// Memperbarui tampilan navigasi dan menu saat halaman dimuat
+window.addEventListener('load', function() {
+    updateNav(); // Perbarui tampilan navigasi berdasarkan status login
+    toggleMenus(); // Perbarui tampilan menu saat halaman dimuat
+});
+
+
+
+
+
             </script>
             
             
