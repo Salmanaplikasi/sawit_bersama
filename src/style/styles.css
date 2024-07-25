@@ -1,4 +1,4 @@
-/* Memberikan perilaku scrolling yang halus pada semua elemen */
+Memberikan perilaku scrolling yang halus pada semua elemen
 *{
     scroll-behavior: smooth; /* Menyediakan transisi scrolling yang halus saat berpindah antara tautan anchor */
 }
@@ -8,15 +8,10 @@ body {
     font-family: Arial, sans-serif; /* Mengatur jenis font utama untuk seluruh dokumen */
     margin: 0; /* Menghilangkan margin default dari body */
     padding: 0; /* Menghilangkan padding default dari body */
-    background-color: #f9f9f9; /* Menetapkan warna latar belakang abu-abu terang */
+    background-color: #2d8682; /* Menetapkan warna latar belakang abu-abu terang */
     line-height: 1.6; /* Menetapkan tinggi garis untuk meningkatkan keterbacaan teks */
 }
 
-/* Styling untuk header */
-header {
-    background-color: #2a9d8f; /* Menetapkan warna latar belakang hijau kebiruan untuk header */
-    padding: 20px; /* Memberikan padding 20px di sekitar konten header */
-}
 
 /* Container di dalam header untuk layout flex */
 header .container {
@@ -406,9 +401,117 @@ footer .email-updates button {
 
 
 
+section {
+    display: none; /* Sembunyikan semua section secara default */
+}
+
+section.active {
+    display: block; /* Tampilkan section yang aktif */
+}
+
+
+
+
+
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Section styling */
 .showcase {
-    display: none; /* Semua section awalnya disembunyikan */
+    padding: 20px;
+    box-sizing: border-box;
 }
-.showcase.active {
-    display: block; /* Hanya section yang aktif yang ditampilkan */
+
+/* Styling untuk section Home agar footer berada di bawah */
+#home {
+    min-height: 80vh; /* Atur tinggi minimum sesuai kebutuhan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Atur agar konten berada di tengah */
 }
+
+
+
+
+
+
+
+
+.showcase .container {
+    position: relative;
+    width: 100%;
+}
+
+.showcase img {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+}
+
+.showcase h1,
+.showcase p,
+.showcase button,
+.showcase .stats img {
+    position: relative;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .showcase h1 {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .showcase p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .showcase button {
+        width: 150px;
+        height: 40px;
+    }
+
+    .showcase .stats img {
+        width: 150px;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase h1 {
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .showcase p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .showcase button {
+        width: 120px;
+        height: 35px;
+    }
+
+    .showcase .stats img {
+        width: 120px;
+        height: auto;
+    }
+}
+

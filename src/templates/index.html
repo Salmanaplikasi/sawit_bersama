@@ -110,145 +110,235 @@
             </nav>
             
             <script>
-        // Menampilkan form login saat tombol login diklik
-document.getElementById('loginButton').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
-    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
-});
+       // Menampilkan form login saat tombol login diklik
+       document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
+            document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
+        });
 
-// Menampilkan form signup saat link "Sign Up" diklik
-document.getElementById('signUpLink').addEventListener('click', function() {
-    document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login
-    document.getElementById('signup-form').style.display = 'block'; // Tampilkan form signup
-});
+        // Menampilkan form signup saat link "Sign Up" diklik
+        document.getElementById('signUpLink').addEventListener('click', function() {
+            document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login
+            document.getElementById('signup-form').style.display = 'block'; // Tampilkan form signup
+        });
 
-// Kembali ke form login dari form signup
-document.getElementById('signInLink').addEventListener('click', function() {
-    document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
-    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
-});
+        // Kembali ke form login dari form signup
+        document.getElementById('signInLink').addEventListener('click', function() {
+            document.getElementById('login-form').style.display = 'block'; // Tampilkan form login
+            document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup
+        });
 
-// Menyimpan status login dan memperbarui tampilan navigasi
-function setLoginStatus(isLoggedIn) {
-    localStorage.setItem('isLoggedIn', isLoggedIn); // Simpan status login
-    if (!isLoggedIn) {
-        localStorage.removeItem('loginTime'); // Hapus waktu login jika logout
+        // Menyimpan status login dan memperbarui tampilan navigasi
+        function setLoginStatus(isLoggedIn) {
+            localStorage.setItem('isLoggedIn', isLoggedIn); // Simpan status login
+            if (!isLoggedIn) {
+                localStorage.removeItem('loginTime'); // Hapus waktu login jika logout
+            }
+            updateNav(); // Perbarui tampilan navigasi
+        }
+
+        // Memperbarui tampilan navigasi berdasarkan status login
+        function updateNav() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Ambil status login dari localStorage
+            document.getElementById('loginButton').style.display = isLoggedIn ? 'none' : 'inline'; // Tampilkan/Sembunyikan tombol login
+            document.getElementById('logoutButton').style.display = isLoggedIn ? 'inline' : 'none'; // Tampilkan/Sembunyikan tombol logout
+        }
+
+        // Menangani proses login
+        document.getElementById('signInButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            if (email === 'salman21@gmail.com' && password === '12345') {
+                alert("Login successful!");
+                setLoginStatus(true); // Set status login menjadi true
+                localStorage.setItem('email', email); // Simpan email ke localStorage
+                document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
+                window.location.href = "home-user.html"; // Arahkan ke halaman yang diinginkan
+            } else {
+                alert("Wrong entry. Invalid credentials.");
+            }
+        });
+
+        // Menangani proses signup
+        document.getElementById('signUpButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('new-name').value;
+            let email = document.getElementById('new-email').value;
+            let password = document.getElementById('new-password').value;
+            let confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('Password and Confirm Password do not match.');
+                return;
+            }
+
+            alert('Signup successful!'); // Tampilkan pesan sukses
+            document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup setelah signup
+            setLoginStatus(true); // Set status login menjadi true setelah signup berhasil
+            localStorage.setItem('name', name); // Simpan nama ke localStorage
+            localStorage.setItem('email', email); // Simpan email ke localStorage
+            // Jangan simpan password di localStorage
+        });
+
+        // Menangani proses logout
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            setLoginStatus(false); // Set status login menjadi false
+            localStorage.removeItem('name'); // Hapus nama dari localStorage
+            localStorage.removeItem('email'); // Hapus email dari localStorage
+            // Jangan hapus password dari localStorage
+        });
+
+        // Menampilkan section sesuai dengan tombol menu yang diklik
+        function showSection(target) {
+            console.log('Showing section:', target); // Debugging
+            var sections = document.querySelectorAll('.showcase');
+            sections.forEach(function(section) {
+                section.classList.remove('active'); // Sembunyikan semua section
+            });
+
+            var section = document.querySelector(target);
+            if (section) {
+                section.classList.add('active'); // Tampilkan section yang sesuai
+            }
+        }
+
+        // Fungsi untuk menangani klik menu "Home"
+        document.getElementById('homeMenu').addEventListener('click', function(event) {
+            event.preventDefault();
+            showSection('#home'); // Tampilkan section dengan ID 'home'
+        });
+
+        // Fungsi untuk menangani klik menu "Service"
+        document.getElementById('serviceMenu').addEventListener('click', function(event) {
+            event.preventDefault();
+            showSection('#service'); // Tampilkan section dengan ID 'service'
+        });
+
+        // Fungsi untuk menangani klik menu "Feature"
+        document.getElementById('featureMenu').addEventListener('click', function(event) {
+            event.preventDefault();
+            showSection('#feature'); // Tampilkan section dengan ID 'feature'
+        });
+
+        // Fungsi untuk menangani klik menu "Product"
+        document.getElementById('productMenu').addEventListener('click', function(event) {
+            event.preventDefault();
+            showSection('#product'); // Tampilkan section dengan ID 'product'
+        });
+
+        // Fungsi untuk menangani klik menu "Testimonial"
+        document.getElementById('testimonialMenu').addEventListener('click', function(event) {
+            event.preventDefault();
+            showSection('#testimonial'); // Tampilkan section dengan ID 'testimonial'
+        });
+// Fungsi untuk menampilkan section berdasarkan ID
+    function showSection(sectionId) {
+        // Sembunyikan semua section
+        const sections = document.querySelectorAll('.showcase');
+        sections.forEach(section => section.style.display = 'none');
+        
+        // Tampilkan section yang sesuai
+        const activeSection = document.getElementById(sectionId);
+        if (activeSection) {
+            activeSection.style.display = 'block';
+        }
     }
-    updateNav(); // Perbarui tampilan navigasi
-}
 
-// Memperbarui tampilan navigasi berdasarkan status login
-function updateNav() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Ambil status login dari localStorage
-    document.getElementById('loginButton').style.display = isLoggedIn ? 'none' : 'inline'; // Tampilkan/Sembunyikan tombol login
-    document.getElementById('logoutButton').style.display = isLoggedIn ? 'inline' : 'none'; // Tampilkan/Sembunyikan tombol logout
-}
+    // Tambahkan event listener untuk tombol menu
+    document.getElementById('homeMenu').addEventListener('click', () => showSection('home'));
+    document.getElementById('serviceMenu').addEventListener('click', () => showSection('service'));
+    document.getElementById('featureMenu').addEventListener('click', () => showSection('feature'));
+    document.getElementById('productMenu').addEventListener('click', () => showSection('product'));
+    document.getElementById('testimonialMenu').addEventListener('click', () => showSection('testimonial'));
 
-// Menangani proses login
-document.getElementById('signInButton').addEventListener('click', function(event) {
-    event.preventDefault();
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
+    // Tampilkan section 'home' saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+        showSection('home');
+    });
 
-    if (email === 'salman21@gmail.com' && password === '12345') {
-        alert("Login successful!");
-        setLoginStatus(true); // Set status login menjadi true
-        localStorage.setItem('email', email); // Simpan email ke localStorage
-        document.getElementById('login-form').style.display = 'none'; // Sembunyikan form login setelah login
-        window.location.href = "home-user.html"; // Arahkan ke halaman yang diinginkan
-    } else {
-        alert("Wrong entry. Invalid credentials.");
+    // Tangani visibilitas tombol login/logout berdasarkan status autentikasi
+    document.getElementById('signInForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Logika login di sini
+
+        // Setelah login berhasil
+        setLoginStatus(true); // Atur status login menjadi true
+        document.getElementById('loginButton').style.display = 'none';
+        document.getElementById('logoutButton').style.display = 'inline';
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', () => {
+        // Logika logout di sini
+
+        // Setelah logout berhasil
+        setLoginStatus(false); // Atur status login menjadi false
+        document.getElementById('loginButton').style.display = 'inline';
+        document.getElementById('logoutButton').style.display = 'none';
+    });
+
+    // Fungsi untuk mengelola tampilan menu pada layar kecil
+    function toggleMenu() {
+        const navbarLinks = document.querySelector('.navbar-links');
+        navbarLinks.classList.toggle('active');
     }
-});
 
-// Menangani proses signup
-document.getElementById('signUpButton').addEventListener('click', function(event) {
-    event.preventDefault();
-    let name = document.getElementById('new-name').value;
-    let email = document.getElementById('new-email').value;
-    let password = document.getElementById('new-password').value;
-    let confirmPassword = document.getElementById('confirm-password').value;
+    // Menambahkan event listener untuk tombol toggle menu
+    document.getElementById('menuToggleButton').addEventListener('click', toggleMenu);
 
-    if (password !== confirmPassword) {
-        alert('Password and Confirm Password do not match.');
-        return;
-    }
+    // Memastikan fungsi ini dipanggil saat halaman dimuat untuk mengatur status menu
+    window.addEventListener('load', () => {
+        updateNav(); // Perbarui tampilan navigasi berdasarkan status login
+        toggleMenus(); // Perbarui tampilan menu saat halaman dimuat
+    });
 
-    alert('Signup successful!'); // Tampilkan pesan sukses
-    document.getElementById('signup-form').style.display = 'none'; // Sembunyikan form signup setelah signup
-    setLoginStatus(true); // Set status login menjadi true setelah signup berhasil
-    localStorage.setItem('name', name); // Simpan nama ke localStorage
-    localStorage.setItem('email', email); // Simpan email ke localStorage
-    // Jangan simpan password di localStorage
-});
 
-// Menangani proses logout
-document.getElementById('logoutButton').addEventListener('click', function() {
-    setLoginStatus(false); // Set status login menjadi false
-    localStorage.removeItem('name'); // Hapus nama dari localStorage
-    localStorage.removeItem('email'); // Hapus email dari localStorage
-    // Jangan hapus password dari localStorage
-});
 
-// Menampilkan section sesuai dengan tombol menu yang diklik
-function showSection(target) {
-    var sections = document.querySelectorAll('section');
-    sections.forEach(function(section) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Ambil semua button dengan data-target
+const buttons = document.querySelectorAll('button[data-target]');
+
+// Fungsi untuk menampilkan section berdasarkan ID
+function showSection(sectionId) {
+    // Ambil semua elemen dengan kelas 'showcase'
+    const sections = document.querySelectorAll('.showcase');
+    
+    // Sembunyikan semua section
+    sections.forEach(section => {
         section.classList.remove('active');
     });
 
-    var section = document.querySelector(target);
-    if (section) {
-        section.classList.add('active');
+    // Tampilkan section yang sesuai
+    const targetSection = document.querySelector(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
     }
 }
 
-// Menangani klik pada tombol menu
-document.querySelectorAll('button[data-target]').forEach(function(button) {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
-        var target = button.getAttribute('data-target');
-        showSection(target);
-    });
-});
-
-// Menangani klik pada link dalam menu
-function handleMenuClick(event) {
-    var target = event.target;
-    if (target.tagName.toLowerCase() === 'a') {
-        var href = target.getAttribute('href');
-        var dataTarget = target.parentNode.getAttribute('data-target');
-        var targetId = href || dataTarget;
+// Tambahkan event listener untuk setiap button
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
         showSection(targetId);
-    }
-}
-
-// Menambahkan event listener untuk setiap <li> dengan class 'nav-item'
-document.querySelectorAll('li.nav-item').forEach(function(item) {
-    item.addEventListener('click', function(event) {
-        handleMenuClick(event); // Panggil fungsi untuk menangani klik pada menu
     });
 });
-
-// Menampilkan atau menyembunyikan menu berdasarkan status login
-function toggleMenus() {
-    var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Periksa status login dari localStorage
-    var menus = document.querySelectorAll('li.nav-item');
-    menus.forEach(function(menu) {
-        menu.style.display = isLoggedIn ? 'block' : 'none'; // Tampilkan/Sembunyikan menu
-    });
-}
-
-// Memperbarui tampilan navigasi dan menu saat halaman dimuat
-window.addEventListener('load', function() {
-    updateNav(); // Perbarui tampilan navigasi berdasarkan status login
-    toggleMenus(); // Perbarui tampilan menu saat halaman dimuat
-});
-
-
-
-
 
             </script>
             
@@ -260,12 +350,20 @@ window.addEventListener('load', function() {
     </header>
     <section id="home" class="showcase active">
         <div class="container">
-            <img src="hero-image.png" alt="Hero Image" style="width:100%; max-width:500px;">
-            <h1>Sawit Rover & Drone</h1>
-            <p>Welcome to our innovative platform: "SRED". We present you with a cutting-edge solution for efficient and secure monitoring and data recording from drones and rovers, utilizing blockchain technology.</p>
-            <button id="getProductBtn">Get Product</button>
+            <img src="hero-image.png" alt="Hero Image" style="position: absolute; width: 432px; height: 483px; left: 815px; top: 30px;">
+            <h1 style="width: 310px;   left: 83px; position: absolute; color: rgba(27, 94, 31, 1); font-family: Inter; font-size: 50px; font-weight: 600; line-height: 50px; letter-spacing: 0.01em; text-align: left; opacity: 1;">
+                Sawit Rover & Drone
+              </h1>
+              <p style="width: 636px;  top: 140px; left: 87px; position: absolute; font-family: Poppins; font-size: 20px; font-weight: 300; line-height: 36px; text-align: left; color: rgba(38, 50, 56, 1); opacity: 1;">
+                Welcome to our innovative platform: "SRED". We present you with a cutting-edge solution for efficient and secure monitoring and data recording from drones and rovers, utilizing blockchain technology.
+              </p>              
+              <button id="getProductBtn" style="width: 197.5px; height: 56px; top: 300px; left: 80px; padding: 16px 32px; gap: 16px; border-radius: 64px 0 0 0; opacity: 1; position: absolute;">
+                Get Product
+              </button>
+              
             <div>
-                <img src="hero-stats-user.png" alt="1100+ Active Users" style="margin-top: 20px;">
+                <img src="hero-stats-user.png" alt="1100+ Active Users" style="width: 190px; height: 56px; top: 370px; left: 92px; gap: 16px; opacity: 1; position: absolute; margin-top: 20px;">
+
             </div>
         </div>
     </section>
@@ -274,7 +372,9 @@ window.addEventListener('load', function() {
 
     <section id="service" class="showcase">
         <div class="container">
-            <h2>Palm Oil Community Information</h2>
+            <h2 style="width: 483px; height: 99px; left: 349px; position: absolute; gap: 0; opacity: 0; font-family: Quicksand; font-size: 38px; font-weight: 600; line-height: 44px; text-align: center; color: rgba(38, 50, 56, 1);">
+                Palm Oil Community Information
+            </h2>              
             <div class="info-box">
                 <div>
                     <img src="membership-icon.png" alt="Membership Icon" style="width: 100px; height: auto; margin-bottom: 10px;">
@@ -351,6 +451,7 @@ window.addEventListener('load', function() {
     </section>
     
     <footer>
+        
         <div class="container">
             <div class="footer-logo">
                 <img src="footer-logo.png" alt="Footer Logo" style="height:50px;">
