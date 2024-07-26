@@ -7,7 +7,77 @@
     <title>Sawit Rover & Drone</title>
     <link rel="stylesheet" href="/src/style/styles.css">
     <style>
+     
+
+     .close-btn {
+    position: absolute;
+    position: fixed; /* Menjaga posisi tetap di layar */
+            top: 10px; /* Jarak dari atas halaman */
+            right: 0px; /* Jarak dari kanan halaman */
+            z-index: 1000; /* Menempatkan di atas elemen lain */
+            width: 30px; /* Lebar background */
+            height: 30px; /* Tinggi background */
+            border-radius: 30%; /* Membuat background bulat */
+            display: flex; /* Mengatur background agar menggunakan flexbox */
+            align-items: center; /* Vertikal center tombol */
+            justify-content: center; /* Horizontal center tombol */
+
+
+
+            background: none; /* Menghilangkan background tombol */
+            color: white; /* Warna teks tombol */
+            border: none; /* Menghilangkan border tombol */
+            font-size: 20px; /* Ukuran font X */
+            cursor: pointer; /* Menambahkan kursor pointer saat hover */
+
+
+
+        }
+
+
+
+
+
+
+/* Untuk mengatur posisi tombol di kiri, ganti 'right' dengan 'left' */
+.button-close.left {
+    left: 0px;
+    right: auto;
+}
+
+    .close-btn:hover {
+        background-color: darkred;
+    }
+
     
+    
+    
+    .login-btn {
+        padding: 10px 20px;
+        background-color: #2d511d;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .login-btn:hover {
+        background-color: #1b3e12;
+    }
+
+    p {
+        color: #333;
+    }
+
+    a {
+        color: #007bff; /* Warna biru untuk link */
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
     
     </style>
 </head>
@@ -52,60 +122,62 @@
                    text-align: center;
                ">Logout</a>
         </button>
-    </li>
-</ul>
-
-<div class="login-form" id="login-form" style="display: none">
-    <h2>Sign In</h2>
-    <form id="signInForm">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" required />
+        </li>
+        </ul>
+        
+        <div class="login-form" id="login-form" style="display: none">
+            <button class="close-btn" onclick="closeForm('login-form')">X</button>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="remember-me" name="remember-me" />
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <button type="submit" class="login-btn" id="signInButton">
+                    Login
+                </button>
+            </form>
+            <p style="padding-top: 5px">
+                Don't have an account? <a href="#" id="signUpLink">Sign Up</a>
+            </p>
+            <p>Need help?</p>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
-        </div>
-        <div class="form-group">
-            <input type="checkbox" id="remember-me" name="remember-me" />
-            <label for="remember-me">Remember Me</label>
-        </div>
-        <button type="submit" class="login-btn" id="signInButton">
-            Login
-        </button>
-    </form>
-    <p style="padding-top: 5px">
-        Don't have an account? <a href="#" id="signUpLink">Sign Up</a>
-    </p>
-    <p>Need help?</p>
-</div>
-
-<div class="login-form" id="signup-form" style="display: none">
-    <h2>Sign Up</h2>
-    <form id="signUpForm">
-        <div class="form-group">
-            <label for="new-name">Name</label>
-            <input type="text" id="new-name" name="new-name" required />
-        </div>
-        <div class="form-group">
-            <label for="new-email">Email</label>
-            <input type="email" id="new-email" name="new-email" required />
-        </div>
-        <div class="form-group">
-            <label for="new-password">Password</label>
-            <input type="password" id="new-password" name="new-password" required />
-        </div>
-        <div class="form-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" required />
-        </div>
-        <button type="submit" class="login-btn" id="signUpButton">
-            Sign Up
-        </button>
-    </form>
-    <p style="padding-top: 5px">
-        Have an account? <a href="#" id="signInLink">Login</a>
-    </p>
+        
+        <div class="login-form" id="signup-form" style="display: none">
+            <button class="close-btn" onclick="closeForm('signup-form')">X</button>
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <div class="form-group">
+                    <label for="new-name">Name</label>
+                    <input type="text" id="new-name" name="new-name" required />
+                </div>
+                <div class="form-group">
+                    <label for="new-email">Email</label>
+                    <input type="email" id="new-email" name="new-email" required />
+                </div>
+                <div class="form-group">
+                    <label for="new-password">Password</label>
+                    <input type="password" id="new-password" name="new-password" required />
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required />
+                </div>
+                <button type="submit" class="login-btn" id="signUpButton">
+                    Sign Up
+                </button>
+            </form>
+            <p style="padding-top: 5px">
+                Have an account? <a href="#" id="signInLink">Login</a>
+            </p>
                 </div>
             </nav>
             
@@ -154,15 +226,12 @@ document.getElementById('signInButton').addEventListener('click', function(event
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
 
-    if (email === 'salman21@gmail.com' && password === '12345') {
-        alert("Login successful!");
-        setLoginStatus(true);
-        localStorage.setItem('email', email);
-        document.getElementById('login-form').style.display = 'none';
-        window.location.href = "home-user.html";
-    } else {
-        alert("Wrong entry. Invalid credentials.");
-    }
+    // Menghilangkan pengecekan kredensial
+    alert("Login successful!");
+    setLoginStatus(true);
+    localStorage.setItem('email', email);
+    document.getElementById('login-form').style.display = 'none';
+    window.location.href = "home-user.html";
 });
 
 // Menangani proses signup
@@ -227,7 +296,9 @@ function toggleMenu() {
 // Menambahkan event listener untuk tombol toggle menu
 document.getElementById('menuToggleButton').addEventListener('click', toggleMenu);
 
-
+ function closeForm(formId) {
+        document.getElementById(formId).style.display = 'none';
+    }
             </script>
             
             
