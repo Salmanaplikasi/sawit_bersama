@@ -515,3 +515,144 @@ body {
     }
 }
 
+
+
+/*BUTTON DI MENU 1 */
+
+
+
+
+
+/* MENU 2*/
+/* icon 1 */
+.info-box {
+    margin-top: 150px;
+}
+
+/* Gaya untuk gambar */
+.membership-icon {
+    width: 100px;
+    height: auto;
+    margin-top: 70px;   /* Jarak atas */
+    margin-right: 70px; /* Jarak kanan */
+    margin-bottom: 10px; /* Jarak bawah */
+    margin-left: -1030px; /* Jarak kiri, pastikan nilai ini memiliki satuan */
+    position: relative;
+    right: 520px; /* Posisi horizontal gambar */
+}
+
+
+/* Gaya untuk heading */
+.heading {
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: -1030px; /* Menambah jarak kiri dengan nilai negatif */
+}
+
+
+/* Gaya untuk paragraf */
+.paragraph {
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    transform: translateX(-500px); /* Menggeser elemen ke kiri */
+}
+
+/* icon 2 */
+/* Mengatur kontainer */
+.association-container {
+    margin-bottom: 150px;
+}
+
+/* Mengatur ikon */
+.association-icon {
+    width: 100px; /* Lebar gambar */
+    height: 100px; /* Tinggi gambar */
+    margin-top: -20px;   /* Naikkan gambar dengan margin negatif */
+    margin-right: 70px; /* Jarak kanan dari gambar */
+    margin-bottom: 10px; /* Jarak bawah dari gambar */
+    margin-left: 0; /* Jarak kiri dari gambar */
+    position: relative; /* Posisi relatif untuk mengatur 'top' */
+    top: -265px; /* Naikkan gambar sedikit dengan mengatur posisi relatif */
+}
+
+/* Gaya untuk judul */
+.association-title {
+    font-size: 1.5em; /* Sesuaikan ukuran font */
+    margin-top: -265px; /* Naikkan judul dengan margin negatif */
+    margin-right: 0; /* Jarak kanan dari judul */
+    margin-bottom: 10px; /* Jarak bawah dari judul */
+    margin-left: 0; /* Jarak kiri dari judul */
+}
+
+/* Mengatur deskripsi */
+.association-description {
+    font-size: 1em; /* Sesuaikan ukuran font */
+    margin: 0;
+}
+
+/* Gaya untuk link dalam deskripsi */
+.association-description a {
+    text-decoration: none; /* Menghapus garis bawah pada link */
+    color: #000000; /* Warna link */
+    display: inline-block; /* Membiarkan margin berfungsi */
+    top: 1px; /* Naikkan link ke atas dengan mengatur posisi relatif */    margin-bottom: 5px; /* Jarak bawah link */
+    margin-left: 1px; /* Jarak kiri link */
+    margin-right: 1px; /* Jarak kanan link */
+}
+
+/* ICON 3 */
+.clubs-groups-container {
+    flex: 1; /* Menyesuaikan lebar kontainer klub dan grup */
+    margin-left: 20px; /* Jarak kiri dari kontainer klub dan grup */
+}
+
+/* Mengatur ikon klub dan grup */
+.clubs-groups-icon {
+    width: 100px; /* Lebar gambar */
+    height: 10px; /* Tinggi gambar */
+    margin-right: 0; /* Reset margin kanan */
+    margin-bottom: 0; /* Jarak bawah dari gambar */
+    margin-left: 0px; /* Jarak kiri dari gambar */
+    position: relative; /* Posisi relatif untuk mengatur 'left' */
+    left: 500px; /* Geser gambar lebih ke kanan */
+    top: -275px; /* Naikkan gambar sedikit dengan mengatur posisi relatif */
+}
+
+
+
+
+
+
+/* Gaya untuk judul klub dan grup */
+.clubs-groups-heading {
+    font-size: 1.5em; /* Sesuaikan ukuran font */
+    margin-top: -280px; /* Naikkan judul dengan margin negatif */
+    margin-right: -1000px; /* Geser judul lebih ke kanan dengan margin kanan yang lebih besar */
+    margin-bottom: 10px; /* Jarak bawah dari judul */
+    margin-left: 0; /* Jarak kiri dari judul */
+}
+
+
+/* Mengatur deskripsi klub dan grup */
+.clubs-groups-description {
+    font-size: 1em; /* Sesuaikan ukuran font */
+    margin: 0; /* Menghapus margin */
+    position: relative; /* Posisi relatif untuk pengaturan top, right, bottom, left */
+    top: 5px; /* Turunkan deskripsi 5px dari posisi normal */
+    left: 490px; /* Geser deskripsi 490px ke kanan dari posisi normal */
+    cursor: pointer; /* Ubah kursor menjadi pointer saat hover */
+}
+
+.underline {
+    text-decoration: underline; /* Menambahkan garis bawah */
+}
+
+
+/* Gaya untuk link dalam deskripsi klub dan grup */
+.clubs-groups-description a {
+    text-decoration: none; /* Menghapus garis bawah pada link */
+    color: #000000; /* Warna link */
+}
