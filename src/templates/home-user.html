@@ -9,231 +9,236 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: rgb(255, 255, 255);
-        overflow-x: hidden; /* Prevent horizontal scrolling */
-      }
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(232, 245, 233, 1);
-        padding: 10px 20px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000; /* Ensure navbar is above other content */
-      }
-      .navbar-left {
-        display: flex;
-        align-items: center;
-      }
-      .navbar-left img {
-        height: 40px;
-        margin-left: 40px;
-      }
-      .navbar-left h1 {
-        margin: 0;
-        font-size: 24px;
-        color: #336633;
-      }
-      .navbar-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-grow: 1;
-      }
-      .navbar-center a {
-        text-decoration: none;
-        margin: 0 10px;
-        padding: 10px;
-        border-radius: 3px;
-        transition: background-color 0.3s, color 0.3s;
-      }
-      .navbar-center a:hover {
-        background-color: #1b5e1f;
-        color: #fcfcfc;
-      }
-      .navbar-center a:active {
-        background-color: #155d27;
-        color: #fcfcfc;
-      }
-      .navbar-right {
-        display: flex;
-        align-items: center;
-      }
-      .navbar-right .profile-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30px;
-        height: 30px;
-      }
-      .navbar-right .profile-icon img {
-        width: 50px;
-        height: 50px;
-        margin-right: 100px;
-      }
-      .home-button,
-      .help-button,
-      .about-button {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px;
-        gap: 10px;
-        width: 90px;
-        height: 35px;
-        border: 1px solid #1b5e1f;
-        border-radius: 3px;
-        color: #1b5e1f;
-        font-family: "Poppins", sans-serif;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 21px;
-        text-align: center;
-        transition: background-color 0.3s, color 0.3s;
-      }
-      .home-button {
-        background: #1b5e1f;
-        color: #fcfcfc;
-      }
-      .home-button:hover,
-      .home-button:active {
-        background-color: #155d27;
-        color: #fcfcfc;
-      }
-      .about-button {
-        color: #1b5e1f;
-      }
-      .about-button:hover,
-      .about-button:active {
-        background-color: #d0e0d0;
-        color: #1b5e1f;
-      }
-      .sidebar {
-        width: 250px;
-        background-color: #004d00;
-        color: #fff;
-        position: fixed;
-        top: 60px; /* Positioned below the navbar */
-        left: 0;
-        height: calc(100vh - 60px); /* Adjusted height */
-        overflow-y: auto; /* Allows vertical scrolling within the sidebar */
-        padding: 10px 0; /* Padding for spacing */
-        z-index: 999; /* Ensure sidebar is below the navbar */
-      }
-      .sidebar a {
-        display: block;
-        color: #fff;
-        padding: 15px;
-        text-decoration: none;
-        font-size: 18px;
-        transition: background-color 0.3s;
-      }
-      .sidebar a:hover {
-        background-color: #575757;
-      }
-      .sidebar a i {
-        margin-right: 10px;
-      }
-      .sidebar .submenu a {
-        padding-left: 30px;
-        font-size: 16px;
-        background-color: #e0f0e0;
-        color: #757575;
-      }
-      .sidebar .submenu a:hover {
-        background-color: #d0e0d0;
-      }
-      .sidebar .submenu {
-        display: none;
-      }
-      .sidebar .submenu.active {
-        display: block;
-      }
-      .content {
-        margin-left: 250px; /* Ensure content is not hidden behind the sidebar */
-        padding: 70px 20px 20px; /* Add padding for content */
-      }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 255, 255);
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(232, 245, 233, 1);
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure navbar is above other content */
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-left img {
+            height: 40px;
+            margin-left: 40px;
+        }
+        .navbar-left h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #336633;
+        }
+        .navbar-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .navbar-center a {
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar-center a:hover {
+            background-color: #1B5E1F;
+            color: #fcfcfc;
+        }
+        .navbar-center a:active {
+            background-color: #155d27;
+            color: #fcfcfc;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-right .profile-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+        .navbar-right .profile-icon img {
+            width: 50px;
+            height: 50px;
+            margin-right: 100px;
+        }
+        .home-button, .help-button, .about-button {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            gap: 10px;
+            width: 90px;
+            height: 35px;
+            border: 1px solid #1B5E1F;
+            border-radius: 3px;
+            color: #1B5E1F;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 21px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .home-button {
+            background: #1B5E1F;
+            color: #fcfcfc;
+        }
+        .home-button:hover, .home-button:active {
+            background-color: #155d27;
+            color: #fcfcfc;
+        }
+        .about-button {
+            color: #1B5E1F;
+        }
+        .about-button:hover, .about-button:active {
+            background-color: #d0e0d0;
+            color: #1B5E1F;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #004d00;
+            color: #fff;
+            position: fixed;
+            top: 60px; /* Positioned below the navbar */
+            left: 0;
+            height: calc(100vh - 60px); /* Adjusted height */
+            overflow-y: auto; /* Allows vertical scrolling within the sidebar */
+            padding: 10px 0; /* Padding for spacing */
+            z-index: 999; /* Ensure sidebar is below the navbar */
+        }
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar a i {
+            margin-right: 10px;
+        }
+        .sidebar .submenu a {
+            padding-left: 30px;
+            font-size: 16px;
+            background-color: #e0f0e0;
+            color: #757575;
+        }
+        .sidebar .submenu a:hover {
+            background-color: #d0e0d0;
+        }
+        .sidebar .submenu {
+            display: none;
+        }
+        .sidebar .submenu.active {
+            display: block;
+        }
+        .content {
+            margin-left: 250px; /* Ensure content is not hidden behind the sidebar */
+            padding: 70px 20px 20px; /* Add padding for content */
+        }
+
+
+
+        /*  css untuk logout*/
+        .logout-btn {
+    background-color: #f44336; /* Warna merah */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: -880px; /* Geser tombol ke kiri */
+    margin-right: -40px; /* Geser tombol lebih jauh dari sisi kanan */
+}
+
+
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Warna merah lebih gelap saat hover */
+}
+
+
+/* atur logo user di home page */
+.profile-icon {
+  margin-left: -30px; /* Sesuaikan nilai ini untuk menggeser lebih jauh ke kanan */
+}
+
+
     </style>
   </head>
   <body>
     <div class="navbar">
-      <div class="navbar-left">
-        <img src="sred-logo.png" alt="SRED Logo" />
-      </div>
-      <div class="navbar-center">
-        <a href="#" class="home-button">Home</a>
-        <a href="#" class="help-button">Help</a>
-        <a href="#" class="about-button">About</a>
-      </div>
-      <div class="navbar-right">
-        <div class="profile-icon">
-          <img src="image.png" alt="Profile Icon" />
+
+        <div class="navbar-left">
+            <img src="sred-logo.png" alt="SRED Logo">
+        </div>
+        <div class="navbar-center">
+            <a href="#" class="home-button">Home</a>
+            <a href="#" class="help-button">Help</a>
+            <a href="#" class="about-button">About</a>
+        </div>
+        <div class="navbar-right">
+            <div class="profile-icon">
+                <img src="image.png" alt="Profile Icon" class="Profile Icon">
+            </div>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+
         </div>
       </div>
     </div>
 
     <div class="sidebar">
-      <a href="#"><i class="fas fa-home"></i> Home</a>
-      <a href="#deviceManagement" onclick="toggleMenu('deviceManagement')"
-        ><i class="fas fa-cogs"></i> Device Management</a
-      >
-      <div id="deviceManagement" class="submenu">
-        <a href="#">Battery & Pest Fluid</a>
-        <a href="#">Create a New Device</a>
-      </div>
-      <a href="#roverDrone" onclick="toggleMenu('roverDrone')"
-        ><i class="fas fa-drone"></i> Rover & Drone</a
-      >
-      <div id="roverDrone" class="submenu active">
-        <a href="#">Battery & Pest Fluid</a>
-        <a href="#">Create a New Device</a>
-      </div>
-      <a href="#monitoring" onclick="toggleMenu('monitoring')"
-        ><i class="fas fa-heartbeat"></i> Monitoring</a
-      >
-      <div id="monitoring" class="submenu active">
-        <a href="#">Real-time Monitoring</a>
-        <a href="#">All Environment</a>
-        <a href="#">All Service</a>
-      </div>
-      <a href="#maintenance" onclick="toggleMenu('maintenance')"
-        ><i class="fas fa-tools"></i> Maintenance</a
-      >
-      <div id="maintenance" class="submenu">
-        <!-- Add submenu items if any -->
-      </div>
-      <a href="#dataRouting" onclick="toggleMenu('dataRouting')"
-        ><i class="fas fa-network-wired"></i> Data Routing</a
-      >
-      <div id="dataRouting" class="submenu">
-        <!-- Add submenu items if any -->
-      </div>
-      <a href="#classicCases" onclick="toggleMenu('classicCases')"
-        ><i class="fas fa-folder-open"></i> Classic Cases</a
-      >
-      <div id="classicCases" class="submenu">
-        <!-- Add submenu items if any -->
-      </div>
-      <a href="#iotOperation" onclick="toggleMenu('iotOperation')"
-        ><i class="fas fa-project-diagram"></i> IoT Operation</a
-      >
-      <div id="iotOperation" class="submenu">
-        <!-- Add submenu items if any -->
-      </div>
-      <a href="#plcDataShow" onclick="toggleMenu('plcDataShow')"
-        ><i class="fas fa-database"></i> PLC Data Show</a
-      >
-      <div id="plcDataShow" class="submenu">
-        <!-- Add submenu items if any -->
-      </div>
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#deviceManagement" onclick="toggleMenu('deviceManagement')"><i class="fas fa-cogs"></i> Device Management</a>
+        <div id="deviceManagement" class="submenu">
+            <a href="#">Battery & Pest Fluid</a>
+            <a href="#">Create a New Device</a>
+        </div>
+        <a href="#roverDrone" onclick="toggleMenu('roverDrone')"><i class="fas fa-drone"></i> Rover & Drone</a>
+        <div id="roverDrone" class="submenu active">
+            <a href="#">Battery & Pest Fluid</a>
+            <a href="#">Create a New Device</a>
+        </div>
+        <a href="#monitoring" onclick="toggleMenu('monitoring')"><i class="fas fa-heartbeat"></i> Monitoring</a>
+        <div id="monitoring" class="submenu active">
+            <a href="#">Real-time Monitoring</a>
+            <a href="#">All Environment</a>
+            <a href="#">All Service</a>
+        </div>
+        <a href="#maintenance" onclick="toggleMenu('maintenance')"><i class="fas fa-tools"></i> Maintenance</a>
+        <div id="maintenance" class="submenu">
+            <!-- Add submenu items if any -->
+        </div>
+       
+    
     </div>
 
     <div class="content">
@@ -321,10 +326,29 @@
     </div>
 
     <script>
-      function toggleMenu(menuId) {
-        var element = document.getElementById(menuId);
-        element.classList.toggle("active");
-      }
+
+        function toggleMenu(menuId) {
+            var element = document.getElementById(menuId);
+            element.classList.toggle('active');
+        }
+
+
+
+
+
+
+ // fungsi untuk logout
+ document.getElementById('logoutBtn').addEventListener('click', function() {
+    // Implementasikan logika logout di sini, misalnya hapus sesi pengguna
+    // dan kemudian alihkan ke halaman index.html
+    
+    // Contoh logika untuk menghapus sesi pengguna, misalnya menggunakan localStorage atau sessionStorage
+    // localStorage.removeItem('isLoggedIn');
+
+    // Alihkan ke halaman index.html setelah logout
+    window.location.href = 'index.html';
+});
+
     </script>
   </body>
 </html>
