@@ -154,6 +154,39 @@
             margin-left: 250px; /* Ensure content is not hidden behind the sidebar */
             padding: 70px 20px 20px; /* Add padding for content */
         }
+
+
+
+        /*  css untuk logout*/
+        .logout-btn {
+    background-color: #f44336; /* Warna merah */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: -880px; /* Geser tombol ke kiri */
+    margin-right: -40px; /* Geser tombol lebih jauh dari sisi kanan */
+}
+
+
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Warna merah lebih gelap saat hover */
+}
+
+
+/* atur logo user di home page */
+.profile-icon {
+  margin-left: -30px; /* Sesuaikan nilai ini untuk menggeser lebih jauh ke kanan */
+}
+
+
     </style>
 </head>
 <body>
@@ -168,8 +201,9 @@
         </div>
         <div class="navbar-right">
             <div class="profile-icon">
-                <img src="image.png" alt="Profile Icon">
+                <img src="image.png" alt="Profile Icon" class="Profile Icon">
             </div>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
         </div>
     </div>
 
@@ -195,22 +229,8 @@
         <div id="maintenance" class="submenu">
             <!-- Add submenu items if any -->
         </div>
-        <a href="#dataRouting" onclick="toggleMenu('dataRouting')"><i class="fas fa-network-wired"></i> Data Routing</a>
-        <div id="dataRouting" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#classicCases" onclick="toggleMenu('classicCases')"><i class="fas fa-folder-open"></i> Classic Cases</a>
-        <div id="classicCases" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#iotOperation" onclick="toggleMenu('iotOperation')"><i class="fas fa-project-diagram"></i> IoT Operation</a>
-        <div id="iotOperation" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#plcDataShow" onclick="toggleMenu('plcDataShow')"><i class="fas fa-database"></i> PLC Data Show</a>
-        <div id="plcDataShow" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
+       
+    
     </div>
 
     <div class="content">
@@ -238,7 +258,18 @@
 
 
 
- 
+ // fungsi untuk logout
+ document.getElementById('logoutBtn').addEventListener('click', function() {
+    // Implementasikan logika logout di sini, misalnya hapus sesi pengguna
+    // dan kemudian alihkan ke halaman index.html
+    
+    // Contoh logika untuk menghapus sesi pengguna, misalnya menggunakan localStorage atau sessionStorage
+    // localStorage.removeItem('isLoggedIn');
+
+    // Alihkan ke halaman index.html setelah logout
+    window.location.href = 'index.html';
+});
+
     </script>
 </body>
 </html>
