@@ -19,6 +19,7 @@ document.getElementById("getDemoBtn").addEventListener("click", function () {
   window.location.href = "#";
 });
 
+
 // document.querySelectorAll("ul li a").forEach((anchor) => {
 //   anchor.addEventListener("click", function (e) {
 //     e.preventDefault();

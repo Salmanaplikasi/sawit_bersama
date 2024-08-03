@@ -1,244 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: rgb(255, 255, 255);
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(232, 245, 233, 1);
-            padding: 10px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000; /* Ensure navbar is above other content */
-        }
-        .navbar-left {
-            display: flex;
-            align-items: center;
-        }
-        .navbar-left img {
-            height: 40px;
-            margin-left: 40px;
-        }
-        .navbar-left h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #336633;
-        }
-        .navbar-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-grow: 1;
-        }
-        .navbar-center a {
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .navbar-center a:hover {
-            background-color: #1B5E1F;
-            color: #fcfcfc;
-        }
-        .navbar-center a:active {
-            background-color: #155d27;
-            color: #fcfcfc;
-        }
-        .navbar-right {
-            display: flex;
-            align-items: center;
-        }
-        .navbar-right .profile-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-        }
-        .navbar-right .profile-icon img {
-            width: 50px;
-            height: 50px;
-            margin-right: 100px;
-        }
-        .home-button, .help-button, .about-button {
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            gap: 10px;
-            width: 90px;
-            height: 35px;
-            border: 1px solid #1B5E1F;
-            border-radius: 3px;
-            color: #1B5E1F;
-            font-family: 'Poppins', sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 14px;
-            line-height: 21px;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .home-button {
-            background: #1B5E1F;
-            color: #fcfcfc;
-        }
-        .home-button:hover, .home-button:active {
-            background-color: #155d27;
-            color: #fcfcfc;
-        }
-        .about-button {
-            color: #1B5E1F;
-        }
-        .about-button:hover, .about-button:active {
-            background-color: #d0e0d0;
-            color: #1B5E1F;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #004d00;
-            color: #fff;
-            position: fixed;
-            top: 60px; /* Positioned below the navbar */
-            left: 0;
-            height: calc(100vh - 60px); /* Adjusted height */
-            overflow-y: auto; /* Allows vertical scrolling within the sidebar */
-            padding: 10px 0; /* Padding for spacing */
-            z-index: 999; /* Ensure sidebar is below the navbar */
-        }
-        .sidebar a {
-            display: block;
-            color: #fff;
-            padding: 15px;
-            text-decoration: none;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-        .sidebar a i {
-            margin-right: 10px;
-        }
-        .sidebar .submenu a {
-            padding-left: 30px;
-            font-size: 16px;
-            background-color: #e0f0e0;
-            color: #757575;
-        }
-        .sidebar .submenu a:hover {
-            background-color: #d0e0d0;
-        }
-        .sidebar .submenu {
-            display: none;
-        }
-        .sidebar .submenu.active {
-            display: block;
-        }
-        .content {
-            margin-left: 250px; /* Ensure content is not hidden behind the sidebar */
-            padding: 70px 20px 20px; /* Add padding for content */
-        }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: rgb(255, 255, 255);
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(232, 245, 233, 1);
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000; /* Ensure navbar is above other content */
+      }
+      .navbar-left {
+        display: flex;
+        align-items: center;
+      }
+      .navbar-left img {
+        height: 40px;
+        margin-left: 40px;
+      }
+      .navbar-left h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #336633;
+      }
+      .navbar-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+      }
+      .navbar-center a {
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 3px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .navbar-center a:hover {
+        background-color: #1b5e1f;
+        color: #fcfcfc;
+      }
+      .navbar-center a:active {
+        background-color: #155d27;
+        color: #fcfcfc;
+      }
+      .navbar-right {
+        display: flex;
+        align-items: center;
+      }
+      .navbar-right .profile-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+      }
+      .navbar-right .profile-icon img {
+        width: 50px;
+        height: 50px;
+        margin-right: 100px;
+      }
+      .home-button,
+      .help-button,
+      .about-button {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        gap: 10px;
+        width: 90px;
+        height: 35px;
+        border: 1px solid #1b5e1f;
+        border-radius: 3px;
+        color: #1b5e1f;
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .home-button {
+        background: #1b5e1f;
+        color: #fcfcfc;
+      }
+      .home-button:hover,
+      .home-button:active {
+        background-color: #155d27;
+        color: #fcfcfc;
+      }
+      .about-button {
+        color: #1b5e1f;
+      }
+      .about-button:hover,
+      .about-button:active {
+        background-color: #d0e0d0;
+        color: #1b5e1f;
+      }
+      .sidebar {
+        width: 250px;
+        background-color: #004d00;
+        color: #fff;
+        position: fixed;
+        top: 60px; /* Positioned below the navbar */
+        left: 0;
+        height: calc(100vh - 60px); /* Adjusted height */
+        overflow-y: auto; /* Allows vertical scrolling within the sidebar */
+        padding: 10px 0; /* Padding for spacing */
+        z-index: 999; /* Ensure sidebar is below the navbar */
+      }
+      .sidebar a {
+        display: block;
+        color: #fff;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s;
+      }
+      .sidebar a:hover {
+        background-color: #575757;
+      }
+      .sidebar a i {
+        margin-right: 10px;
+      }
+      .sidebar .submenu a {
+        padding-left: 30px;
+        font-size: 16px;
+        background-color: #e0f0e0;
+        color: #757575;
+      }
+      .sidebar .submenu a:hover {
+        background-color: #d0e0d0;
+      }
+      .sidebar .submenu {
+        display: none;
+      }
+      .sidebar .submenu.active {
+        display: block;
+      }
+      .content {
+        margin-left: 250px; /* Ensure content is not hidden behind the sidebar */
+        padding: 70px 20px 20px; /* Add padding for content */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <div class="navbar-left">
-            <img src="sred-logo.png" alt="SRED Logo">
+      <div class="navbar-left">
+        <img src="sred-logo.png" alt="SRED Logo" />
+      </div>
+      <div class="navbar-center">
+        <a href="#" class="home-button">Home</a>
+        <a href="#" class="help-button">Help</a>
+        <a href="#" class="about-button">About</a>
+      </div>
+      <div class="navbar-right">
+        <div class="profile-icon">
+          <img src="image.png" alt="Profile Icon" />
         </div>
-        <div class="navbar-center">
-            <a href="#" class="home-button">Home</a>
-            <a href="#" class="help-button">Help</a>
-            <a href="#" class="about-button">About</a>
-        </div>
-        <div class="navbar-right">
-            <div class="profile-icon">
-                <img src="image.png" alt="Profile Icon">
-            </div>
-        </div>
+      </div>
     </div>
 
     <div class="sidebar">
-        <a href="#"><i class="fas fa-home"></i> Home</a>
-        <a href="#deviceManagement" onclick="toggleMenu('deviceManagement')"><i class="fas fa-cogs"></i> Device Management</a>
-        <div id="deviceManagement" class="submenu">
-            <a href="#">Battery & Pest Fluid</a>
-            <a href="#">Create a New Device</a>
-        </div>
-        <a href="#roverDrone" onclick="toggleMenu('roverDrone')"><i class="fas fa-drone"></i> Rover & Drone</a>
-        <div id="roverDrone" class="submenu active">
-            <a href="#">Battery & Pest Fluid</a>
-            <a href="#">Create a New Device</a>
-        </div>
-        <a href="#monitoring" onclick="toggleMenu('monitoring')"><i class="fas fa-heartbeat"></i> Monitoring</a>
-        <div id="monitoring" class="submenu active">
-            <a href="#">Real-time Monitoring</a>
-            <a href="#">All Environment</a>
-            <a href="#">All Service</a>
-        </div>
-        <a href="#maintenance" onclick="toggleMenu('maintenance')"><i class="fas fa-tools"></i> Maintenance</a>
-        <div id="maintenance" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#dataRouting" onclick="toggleMenu('dataRouting')"><i class="fas fa-network-wired"></i> Data Routing</a>
-        <div id="dataRouting" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#classicCases" onclick="toggleMenu('classicCases')"><i class="fas fa-folder-open"></i> Classic Cases</a>
-        <div id="classicCases" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#iotOperation" onclick="toggleMenu('iotOperation')"><i class="fas fa-project-diagram"></i> IoT Operation</a>
-        <div id="iotOperation" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
-        <a href="#plcDataShow" onclick="toggleMenu('plcDataShow')"><i class="fas fa-database"></i> PLC Data Show</a>
-        <div id="plcDataShow" class="submenu">
-            <!-- Add submenu items if any -->
-        </div>
+      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#deviceManagement" onclick="toggleMenu('deviceManagement')"
+        ><i class="fas fa-cogs"></i> Device Management</a
+      >
+      <div id="deviceManagement" class="submenu">
+        <a href="#">Battery & Pest Fluid</a>
+        <a href="#">Create a New Device</a>
+      </div>
+      <a href="#roverDrone" onclick="toggleMenu('roverDrone')"
+        ><i class="fas fa-drone"></i> Rover & Drone</a
+      >
+      <div id="roverDrone" class="submenu active">
+        <a href="#">Battery & Pest Fluid</a>
+        <a href="#">Create a New Device</a>
+      </div>
+      <a href="#monitoring" onclick="toggleMenu('monitoring')"
+        ><i class="fas fa-heartbeat"></i> Monitoring</a
+      >
+      <div id="monitoring" class="submenu active">
+        <a href="#">Real-time Monitoring</a>
+        <a href="#">All Environment</a>
+        <a href="#">All Service</a>
+      </div>
+      <a href="#maintenance" onclick="toggleMenu('maintenance')"
+        ><i class="fas fa-tools"></i> Maintenance</a
+      >
+      <div id="maintenance" class="submenu">
+        <!-- Add submenu items if any -->
+      </div>
+      <a href="#dataRouting" onclick="toggleMenu('dataRouting')"
+        ><i class="fas fa-network-wired"></i> Data Routing</a
+      >
+      <div id="dataRouting" class="submenu">
+        <!-- Add submenu items if any -->
+      </div>
+      <a href="#classicCases" onclick="toggleMenu('classicCases')"
+        ><i class="fas fa-folder-open"></i> Classic Cases</a
+      >
+      <div id="classicCases" class="submenu">
+        <!-- Add submenu items if any -->
+      </div>
+      <a href="#iotOperation" onclick="toggleMenu('iotOperation')"
+        ><i class="fas fa-project-diagram"></i> IoT Operation</a
+      >
+      <div id="iotOperation" class="submenu">
+        <!-- Add submenu items if any -->
+      </div>
+      <a href="#plcDataShow" onclick="toggleMenu('plcDataShow')"
+        ><i class="fas fa-database"></i> PLC Data Show</a
+      >
+      <div id="plcDataShow" class="submenu">
+        <!-- Add submenu items if any -->
+      </div>
     </div>
 
     <div class="content">
-        <p>Content goes here. Add enough content to ensure scrolling works.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae bibendum orci. Suspendisse potenti. Phasellus non justo vel urna vehicula tristique. Integer vitae malesuada nisi. Aliquam erat volutpat. Integer nec arcu ut nulla cursus laoreet sed sit amet urna. Praesent malesuada suscipit diam, a viverra elit condimentum nec. Duis sit amet convallis eros. Vestibulum et orci tincidunt, varius arcu ut, condimentum ligula.</p>
-        <p>Praesent volutpat dictum ligula, vel euismod justo elementum non. Nullam tincidunt magna nec lectus hendrerit, et interdum lacus consequat. Nam fringilla mi vel ante iaculis, sit amet elementum justo pellentesque. Mauris varius purus et arcu consequat, sed convallis purus euismod. Integer varius, dolor non lacinia suscipit, augue elit accumsan risus, id gravida justo arcu nec libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam erat volutpat.</p>
-        <p>Curabitur id urna id lectus convallis vehicula sed a ligula. Aliquam vel justo urna. Donec at convallis mi. Nunc varius orci nec metus feugiat, at vestibulum eros malesuada. Fusce non arcu purus. Phasellus ut est ac odio sodales sollicitudin. Quisque facilisis orci nec nisl vestibulum, in egestas lectus hendrerit. Etiam euismod tellus ut ante ultrices, a elementum libero pharetra.</p>
-        <p>Integer bibendum urna a risus tincidunt, eget condimentum ante laoreet. Duis id metus id arcu ullamcorper condimentum. Suspendisse non varius tortor. Nulla facilisi. Phasellus ut eros vitae sapien fermentum tristique. Maecenas scelerisque metus nec elit ultricies lacinia. Aenean fringilla vehicula ligula, et facilisis ipsum maximus in. Duis euismod mi id nibh cursus, sit amet lacinia erat luctus.</p>
-        <p>Donec consectetur sapien eu mi gravida, vel aliquet urna ullamcorper. Ut gravida mollis purus, id scelerisque nulla eleifend ut. Donec vitae velit a eros pharetra dignissim. In at tempor elit. Suspendisse potenti. Curabitur condimentum pharetra bibendum. Integer vestibulum, lectus nec varius euismod, erat lacus aliquam odio, et dapibus nulla lorem a augue.</p>
-        <p>Aliquam erat volutpat. Suspendisse auctor orci quis quam tristique, vel laoreet dolor malesuada. Morbi non bibendum nulla. Nulla facilisi. Aliquam erat volutpat. Donec malesuada condimentum mi a luctus. Nam suscipit lectus nec sem ultrices, eget facilisis nulla egestas. Nulla facilisi. Ut vestibulum est vel purus consequat venenatis.</p>
-        <p>Ut at libero vel lectus cursus tincidunt. Fusce condimentum tincidunt tortor, id pellentesque eros gravida sed. Quisque lacinia quam eget urna tempus, in fermentum risus luctus. Praesent at dolor et augue venenatis tincidunt. Pellentesque nec sem id nulla facilisis euismod. Morbi non risus nulla. In consectetur augue nec felis cursus, at vestibulum risus feugiat.</p>
-        <p>Phasellus ultrices turpis ut orci euismod, ac volutpat arcu egestas. Suspendisse potenti. Morbi a sem tincidunt, scelerisque nulla sit amet, dignissim augue. Vestibulum facilisis venenatis velit, eu fermentum mauris cursus ac. Nulla convallis, mauris eu efficitur condimentum, est quam dignissim libero, sed iaculis lorem mi ut risus. Nunc condimentum lectus sed velit dictum vestibulum.</p>
-        <p>Curabitur feugiat, nulla ac dictum gravida, metus lectus posuere arcu, nec fermentum magna urna vel libero. Cras accumsan sapien ut orci egestas, eu feugiat dui dapibus. Donec et nisl in sem fermentum cursus. Sed id suscipit sapien. Morbi vitae risus velit. Nam id dui id felis auctor pellentesque. Sed vestibulum urna ut justo aliquet, id pretium dolor faucibus.</p>
-        <p>Fusce vitae lacus nisi. Phasellus non vehicula risus. Nulla facilisi. Mauris scelerisque est at ante pharetra, sed scelerisque neque pellentesque. Ut posuere felis vel dolor cursus, eget laoreet purus luctus. Vivamus in sapien vitae justo cursus blandit. Sed iaculis arcu at sem tincidunt, a tincidunt risus posuere. Suspendisse potenti.</p>
+      <p>Content goes here. Add enough content to ensure scrolling works.</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae
+        bibendum orci. Suspendisse potenti. Phasellus non justo vel urna
+        vehicula tristique. Integer vitae malesuada nisi. Aliquam erat volutpat.
+        Integer nec arcu ut nulla cursus laoreet sed sit amet urna. Praesent
+        malesuada suscipit diam, a viverra elit condimentum nec. Duis sit amet
+        convallis eros. Vestibulum et orci tincidunt, varius arcu ut,
+        condimentum ligula.
+      </p>
+      <p>
+        Praesent volutpat dictum ligula, vel euismod justo elementum non. Nullam
+        tincidunt magna nec lectus hendrerit, et interdum lacus consequat. Nam
+        fringilla mi vel ante iaculis, sit amet elementum justo pellentesque.
+        Mauris varius purus et arcu consequat, sed convallis purus euismod.
+        Integer varius, dolor non lacinia suscipit, augue elit accumsan risus,
+        id gravida justo arcu nec libero. Vestibulum ante ipsum primis in
+        faucibus orci luctus et ultrices posuere cubilia curae; Aliquam erat
+        volutpat.
+      </p>
+      <p>
+        Curabitur id urna id lectus convallis vehicula sed a ligula. Aliquam vel
+        justo urna. Donec at convallis mi. Nunc varius orci nec metus feugiat,
+        at vestibulum eros malesuada. Fusce non arcu purus. Phasellus ut est ac
+        odio sodales sollicitudin. Quisque facilisis orci nec nisl vestibulum,
+        in egestas lectus hendrerit. Etiam euismod tellus ut ante ultrices, a
+        elementum libero pharetra.
+      </p>
+      <p>
+        Integer bibendum urna a risus tincidunt, eget condimentum ante laoreet.
+        Duis id metus id arcu ullamcorper condimentum. Suspendisse non varius
+        tortor. Nulla facilisi. Phasellus ut eros vitae sapien fermentum
+        tristique. Maecenas scelerisque metus nec elit ultricies lacinia. Aenean
+        fringilla vehicula ligula, et facilisis ipsum maximus in. Duis euismod
+        mi id nibh cursus, sit amet lacinia erat luctus.
+      </p>
+      <p>
+        Donec consectetur sapien eu mi gravida, vel aliquet urna ullamcorper. Ut
+        gravida mollis purus, id scelerisque nulla eleifend ut. Donec vitae
+        velit a eros pharetra dignissim. In at tempor elit. Suspendisse potenti.
+        Curabitur condimentum pharetra bibendum. Integer vestibulum, lectus nec
+        varius euismod, erat lacus aliquam odio, et dapibus nulla lorem a augue.
+      </p>
+      <p>
+        Aliquam erat volutpat. Suspendisse auctor orci quis quam tristique, vel
+        laoreet dolor malesuada. Morbi non bibendum nulla. Nulla facilisi.
+        Aliquam erat volutpat. Donec malesuada condimentum mi a luctus. Nam
+        suscipit lectus nec sem ultrices, eget facilisis nulla egestas. Nulla
+        facilisi. Ut vestibulum est vel purus consequat venenatis.
+      </p>
+      <p>
+        Ut at libero vel lectus cursus tincidunt. Fusce condimentum tincidunt
+        tortor, id pellentesque eros gravida sed. Quisque lacinia quam eget urna
+        tempus, in fermentum risus luctus. Praesent at dolor et augue venenatis
+        tincidunt. Pellentesque nec sem id nulla facilisis euismod. Morbi non
+        risus nulla. In consectetur augue nec felis cursus, at vestibulum risus
+        feugiat.
+      </p>
+      <p>
+        Phasellus ultrices turpis ut orci euismod, ac volutpat arcu egestas.
+        Suspendisse potenti. Morbi a sem tincidunt, scelerisque nulla sit amet,
+        dignissim augue. Vestibulum facilisis venenatis velit, eu fermentum
+        mauris cursus ac. Nulla convallis, mauris eu efficitur condimentum, est
+        quam dignissim libero, sed iaculis lorem mi ut risus. Nunc condimentum
+        lectus sed velit dictum vestibulum.
+      </p>
+      <p>
+        Curabitur feugiat, nulla ac dictum gravida, metus lectus posuere arcu,
+        nec fermentum magna urna vel libero. Cras accumsan sapien ut orci
+        egestas, eu feugiat dui dapibus. Donec et nisl in sem fermentum cursus.
+        Sed id suscipit sapien. Morbi vitae risus velit. Nam id dui id felis
+        auctor pellentesque. Sed vestibulum urna ut justo aliquet, id pretium
+        dolor faucibus.
+      </p>
+      <p>
+        Fusce vitae lacus nisi. Phasellus non vehicula risus. Nulla facilisi.
+        Mauris scelerisque est at ante pharetra, sed scelerisque neque
+        pellentesque. Ut posuere felis vel dolor cursus, eget laoreet purus
+        luctus. Vivamus in sapien vitae justo cursus blandit. Sed iaculis arcu
+        at sem tincidunt, a tincidunt risus posuere. Suspendisse potenti.
+      </p>
     </div>
 
     <script>
-        function toggleMenu(menuId) {
-            var element = document.getElementById(menuId);
-            element.classList.toggle('active');
-        }
-
-
-
-
-
-
- 
+      function toggleMenu(menuId) {
+        var element = document.getElementById(menuId);
+        element.classList.toggle("active");
+      }
     </script>
-</body>
+  </body>
 </html>
