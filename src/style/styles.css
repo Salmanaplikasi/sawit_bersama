@@ -656,3 +656,191 @@ body {
     text-decoration: none; /* Menghapus garis bawah pada link */
     color: #000000; /* Warna link */
 }
+
+     
+
+    /* Tombol close */
+    .close-btn {
+        position: fixed; /* Menjaga posisi tetap di layar */
+        top: 10px; /* Jarak dari atas halaman */
+        right: 0px; /* Jarak dari kanan halaman */
+        z-index: 1000; /* Menempatkan di atas elemen lain */
+        width: 30px; /* Lebar background */
+        height: 30px; /* Tinggi background */
+        border-radius: 50%; /* Membuat background bulat */
+        display: flex; /* Mengatur background agar menggunakan flexbox */
+        align-items: center; /* Vertikal center tombol */
+        justify-content: center; /* Horizontal center tombol */
+        background: none; /* Menghilangkan background tombol */
+        color: white; /* Warna teks tombol */
+        border: none; /* Menghilangkan border tombol */
+        font-size: 20px; /* Ukuran font X */
+        cursor: pointer; /* Menambahkan kursor pointer saat hover */
+    }
+    
+    .close-btn:hover {
+        background-color: darkred; /* Warna background saat hover */
+    }
+    
+    /* Tombol close di kiri */
+    .button-close.left {
+        left: 10px;
+        right: auto;
+    }
+    
+    /* Tombol login */
+    .login-btn {
+        padding: 10px 20px;
+        background-color: #2d511d;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .login-btn:hover {
+        background-color: #1b3e12;
+    }
+    
+    /* Gaya untuk paragraf dan link */
+    p {
+        color: #333;
+    }
+    
+    a {
+        color: #007bff; /* Warna biru untuk link */
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    
+    /*UNTUK MENU KE 2
+    /* Efek 3D untuk gambar */
+    /* Efek 3D untuk gambar persegi panjang */
+    .image-3d {
+        position: relative; /* Membantu dalam pengaturan posisi */
+        width: 300px; /* Lebar gambar */
+        height: 200px; /* Tinggi gambar */
+        transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+        transform: translateZ(30px) scale(1); /* Menghilangkan rotasi untuk posisi tegak lurus */
+        box-shadow: 
+            5px 5px 15px rgba(0, 0, 0, 0.2),
+            10px 10px 25px rgba(0, 0, 0, 0.3),
+            15px 15px 35px rgba(0, 0, 0, 0.4);
+        overflow: hidden; /* Menyembunyikan bagian gambar yang keluar dari batas */
+    }
+    
+    .image-3d-clicked {
+        transform: translateZ(60px) scale(1.1); /* Meningkatkan kedalaman dan ukuran */
+        box-shadow: 
+            10px 10px 25px rgba(0, 0, 0, 0.4),
+            20px 20px 35px rgba(0, 0, 0, 0.5),
+            30px 30px 45px rgba(0, 0, 0, 0.6);
+    }
+    
+    .image-3d:hover {
+        transform: translateZ(40px) scale(1.05); /* Meningkatkan kedalaman saat hover */
+        box-shadow: 
+            8px 8px 20px rgba(0, 0, 0, 0.3),
+            15px 15px 30px rgba(0, 0, 0, 0.4),
+            22px 22px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    .image-3d img {
+        width: 100%; /* Mengisi elemen .image-3d */
+        height: 100%; /* Mengisi elemen .image-3d */
+        object-fit: cover; /* Menyesuaikan gambar agar tidak terdistorsi */
+        display: block; /* Menghilangkan spasi di bawah gambar */
+    }
+    
+    
+    /*UNTUK MENU PERTAMA
+    /* Gaya umum untuk gambar 3D */
+    .image-3d {
+        position: relative; /* Membantu dalam pengaturan posisi */
+        perspective: 1000px; /* Menambahkan perspektif untuk efek 3D */
+        overflow: hidden; /* Menyembunyikan bagian gambar yang keluar dari batas */
+    }
+    
+    /* Gaya khusus untuk gambar dengan class .image-1 */
+    .image-1 {
+        width: 432px; /* Lebar gambar */
+        height: 483px; /* Tinggi gambar */
+        transform: translateZ(60px) scale(1);
+        box-shadow: 
+            5px 5px 15px rgba(0, 0, 0, 0.2),
+            10px 10px 25px rgba(0, 0, 0, 0.3),
+            15px 15px 35px rgba(0, 0, 0, 0.4);
+        transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    }
+    
+    .image-1:hover {
+        transform: translateZ(70px) scale(1.05);
+        box-shadow: 
+            8px 8px 20px rgba(0, 0, 0, 0.3),
+            15px 15px 30px rgba(0, 0, 0, 0.4),
+            22px 22px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Gaya khusus untuk gambar dengan class .image-2 */
+    .image-2 {
+        width: 190px; /* Lebar gambar */
+        height: 56px; /* Tinggi gambar */
+        transform: translateZ(60px) scale(1);
+        box-shadow: 
+            5px 5px 15px rgba(0, 0, 0, 0.2),
+            10px 10px 25px rgba(0, 0, 0, 0.3),
+            15px 15px 35px rgba(0, 0, 0, 0.4);
+        transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    }
+    
+    .image-2:hover {
+        transform: translateZ(70px) scale(1.05);
+        box-shadow: 
+            8px 8px 20px rgba(0, 0, 0, 0.3),
+            15px 15px 30px rgba(0, 0, 0, 0.4),
+            22px 22px 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Menjaga gambar agar sesuai dengan ukuran kontainernya */
+    .image-1 img,
+    .image-2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Menyesuaikan gambar agar tidak terdistorsi */
+        display: block; /* Menghilangkan spasi di bawah gambar */
+    }
+    
+    
+    /* ISI TULISAN MENU KE 2*/
+    /* 1 */
+    a {
+                color: black;
+                text-decoration: none;
+            }
+    
+            a:hover {
+                text-decoration: underline;
+            }
+    
+            #details {
+                display: none;
+                text-align: justify;
+            }
+    
+    
+    
+    /* 2 */
+    #uniqueDetails12345 {
+                display: none;
+            }
+    
+    
+            /* 3 */
+            #details {
+                display: none;
+            }
