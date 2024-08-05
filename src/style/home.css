@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(232, 245, 233, 1);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 40px;
+    margin-left: 40px;
+}
+
+.navbar-left h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #336633;
+}
+
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.navbar-center a {
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-center a:hover {
+    background-color: #1B5E1F;
+    color: #fcfcfc;
+}
+
+.navbar-center a:active {
+    background-color: #155d27;
+    color: #fcfcfc;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right .profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar-right .profile-icon img {
+    width: 50px;
+    height: 50px;
+    margin-right: 100px;
+}
+
+.home-button, .help-button, .about-button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    width: 90px;
+    height: 35px;
+    border: 1px solid #1B5E1F;
+    border-radius: 3px;
+    color: #1B5E1F;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.home-button {
+    background: #1B5E1F;
+    color: #fcfcfc;
+}
+
+.home-button:hover, .home-button:active {
+    background-color: #155d27;
+    color: #fcfcfc;
+}
+
+.about-button {
+    color: #1B5E1F;
+}
+
+.about-button:hover, .about-button:active {
+    background-color: #d0e0d0;
+    color: #1B5E1F;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #004d00;
+    color: #fff;
+    position: fixed;
+    top: 60px; /* Positioned below the navbar */
+    left: 0;
+    height: calc(100vh - 60px); /* Adjusted height */
+    overflow-y: auto; /* Allows vertical scrolling within the sidebar */
+    padding: 10px 0; /* Padding for spacing */
+    z-index: 999; /* Ensure sidebar is below the navbar */
+}
+
+.sidebar a {
+    display: block;
+    color: #fff;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar .submenu a {
+    padding-left: 30px;
+    font-size: 16px;
+    background-color: #e0f0e0;
+    color: #757575;
+}
+
+.sidebar .submenu a:hover {
+    background-color: #d0e0d0;
+}
+
+.sidebar .submenu {
+    display: none;
+}
+
+.sidebar .submenu.active {
+    display: block;
+}
+
+.content {
+    margin-left: 250px; /* Ensure content is not hidden behind the sidebar */
+    padding: 70px 20px 20px; /* Add padding for content */
+}
+
+/* CSS untuk logout */
+.logout-btn {
+    background-color: #f44336; /* Warna merah */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: -880px; /* Geser tombol ke kiri */
+    margin-right: -40px; /* Geser tombol lebih jauh dari sisi kanan */
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f; /* Warna merah lebih gelap saat hover */
+}
+
+/* Atur logo user di home page */
+.profile-icon {
+    margin-left: -30px; /* Sesuaikan nilai ini untuk menggeser lebih jauh ke kanan */
+}
+
+/* CSS untuk grafik */
+#charts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spasi antara grafik */
+    margin-top: 40px; /* Menambahkan jarak dari elemen di atasnya */
+}
+
+canvas {
+    width: 100% !important; /* Pastikan canvas mengambil lebar kontainer */
+    height: 500px; /* Atur tinggi grafik sesuai kebutuhan */
+    max-width: 1000px; /* Maksimal lebar canvas */
+    margin: 60px auto; /* Center canvas dan beri jarak di atas dan bawah */
+    margin-left: 300px; /* Geser canvas ke arah kanan */
+}
