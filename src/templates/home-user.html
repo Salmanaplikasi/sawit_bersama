@@ -28,23 +28,23 @@
 
     <div class="sidebar">
         <a href="#"><i class="fas fa-home"></i> Home</a>
-        <a href="#deviceManagement" onclick="toggleMenu('deviceManagement')"><i class="fas fa-cogs"></i> Device Management</a>
+        <a href="#deviceManagement" class="toggle-menu" data-target="deviceManagement"><i class="fas fa-cogs"></i> Device Management</a>
         <div id="deviceManagement" class="submenu">
             <a href="#">Battery & Pest Fluid</a>
             <a href="#">Create a New Device</a>
         </div>
-        <a href="#roverDrone" onclick="toggleMenu('roverDrone')"><i class="fas fa-drone"></i> Rover & Drone</a>
+        <a href="#roverDrone" class="toggle-menu" data-target="roverDrone"><i class="fas fa-drone"></i> Rover & Drone</a>
         <div id="roverDrone" class="submenu active">
             <a href="#">Battery & Pest Fluid</a>
             <a href="#">Create a New Device</a>
         </div>
-        <a href="#monitoring" onclick="toggleMenu('monitoring')"><i class="fas fa-heartbeat"></i> Monitoring</a>
+        <a href="#monitoring" class="toggle-menu" data-target="monitoring"><i class="fas fa-heartbeat"></i> Monitoring</a>
         <div id="monitoring" class="submenu active">
             <a href="#">Real-time Monitoring</a>
             <a href="#">All Environment</a>
             <a href="#">All Service</a>
         </div>
-        <a href="#maintenance" onclick="toggleMenu('maintenance')"><i class="fas fa-tools"></i> Maintenance</a>
+        <a href="#maintenance" class="toggle-menu" data-target="maintenance"><i class="fas fa-tools"></i> Maintenance</a>
         <div id="maintenance" class="submenu">
             <!-- Add submenu items if any -->
         </div>
@@ -56,3 +56,5 @@
     </div>
 </body>
 </html>
+
+<!-- home.css dan home.js  -->
