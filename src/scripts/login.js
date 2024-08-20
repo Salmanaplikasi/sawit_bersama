@@ -44,9 +44,15 @@ function updateNav() {
     : "none";
 }
 
-const buttonClose = document.querySelector('.close-btn');
-buttonClose.addEventListener('click', function(){
+const buttonCloseLogin = document.querySelector('.close-btn1');
+const buttonCloseSignUp = document.querySelector('.close-btn2');
+buttonCloseLogin.addEventListener('click', function(){
   closeForm('login-form');
+
+});
+
+buttonCloseSignUp.addEventListener('click', function(){
+  closeForm('signup-form');
 });
 
 const burgerMenu = document.querySelector(".burger-menu");

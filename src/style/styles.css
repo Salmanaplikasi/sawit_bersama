@@ -660,7 +660,7 @@ body {
      
 
     /* Tombol close */
-    .close-btn {
+    .close-btn1, .close-btn2{
         position: fixed; /* Menjaga posisi tetap di layar */
         top: 10px; /* Jarak dari atas halaman */
         right: 0px; /* Jarak dari kanan halaman */
@@ -678,7 +678,7 @@ body {
         cursor: pointer; /* Menambahkan kursor pointer saat hover */
     }
     
-    .close-btn:hover {
+    .close-btn1:hover, .close-btn2:hover {
         background-color: darkred; /* Warna background saat hover */
     }
     
