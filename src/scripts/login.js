@@ -44,6 +44,16 @@ function updateNav() {
     : "none";
 }
 
+const buttonClose = document.querySelector('.close-btn');
+buttonClose.addEventListener('click', function(){
+  closeForm('login-form');
+});
+
+const burgerMenu = document.querySelector(".burger-menu");
+burgerMenu.addEventListener('click', function(){
+  toggleMenu()
+});
+
 // Menangani proses login
 document
   .getElementById("signInButton")
@@ -89,12 +99,16 @@ document.getElementById("logoutButton").addEventListener("click", function () {
   localStorage.removeItem("email");
 });
 
-// Menampilkan section sesuai dengan tombol menu yang diklik
+// Fungsi untuk menampilkan atau menyembunyikan section
 function showSection(sectionId) {
+  // Sembunyikan semua section
   const sections = document.querySelectorAll(".showcase");
-  sections.forEach((section) => (section.style.display = "none"));
+  sections.forEach((section) => {
+    section.style.display = "none";
+  });
 
-  const activeSection = document.getElementById(sectionId);
+  // Tampilkan section yang sesuai dengan id yang diberikan
+  const activeSection = document.querySelector(sectionId);
   if (activeSection) {
     activeSection.style.display = "block";
   }
@@ -104,15 +118,14 @@ function showSection(sectionId) {
 document.querySelectorAll("button[data-target]").forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
-    const target = button.getAttribute("data-target").substring(1); // Remove '#' from target
+    const target = button.getAttribute("data-target"); // Ambil data-target langsung
     showSection(target);
   });
 });
 
 // Tampilkan section 'home' saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
-  showSection("home");
-  updateNav(); // Perbarui tampilan navigasi berdasarkan status login
+  showSection("#home");
 });
 
 // Fungsi untuk mengelola tampilan menu pada layar kecil
