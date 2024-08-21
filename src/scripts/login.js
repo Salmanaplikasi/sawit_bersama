@@ -1,3 +1,6 @@
+import ThePalmSourceUser from "./data/sawit-source-user";
+import { showSuccessMessage } from "./utils/popup";
+
 // Menampilkan form login saat tombol login diklik
 document
   .getElementById("loginButton")
@@ -63,23 +66,25 @@ burgerMenu.addEventListener('click', function(){
 // Menangani proses login
 document
   .getElementById("signInButton")
-  .addEventListener("click", function (event) {
+  .addEventListener("click", async function (event) {
     event.preventDefault();
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    // Menghilangkan pengecekan kredensial
-    alert("Login successful!");
-    setLoginStatus(true);
-    localStorage.setItem("email", email);
-    document.getElementById("login-form").style.display = "none";
-    window.location.href = "home-user.html";
+    //  Menjalankan proses login
+    const response = await ThePalmSourceUser.login(email, password);
+    if(response){
+      setLoginStatus(true);
+      document.getElementById("login-form").style.display = "none";
+      window.location.href = "home-user.html";  /////////asdoasodosdaosdapsad
+    }
+    
   });
 
 // Menangani proses signup
 document
   .getElementById("signUpButton")
-  .addEventListener("click", function (event) {
+  .addEventListener("click", async function (event) {
     event.preventDefault();
     let name = document.getElementById("new-name").value;
     let email = document.getElementById("new-email").value;
@@ -91,18 +96,25 @@ document
       return;
     }
 
-    alert("Signup successful!");
+    try {
+      // Menjalankan registrasi dengan menggunakan objek TheHealthcareSourceUser
+      const response = await ThePalmSourceUser.register(name, email, password, confirmPassword);
+      if (response) {
+        showSuccessMessage('Registrasi berhasil!');
+
+      }
+    } catch (error) {
+      console.error('Registrasi gagal:', error.message);
+      showErrorMessage('Registrasi gagal: ' + error.message);
+    }
     toggleForms("login");
-    setLoginStatus(true);
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
   });
 
 // Menangani proses logout
 document.getElementById("logoutButton").addEventListener("click", function () {
   setLoginStatus(false);
-  localStorage.removeItem("name");
-  localStorage.removeItem("email");
+  localStorage.removeItem("accessToken");
+  window.location.reload();
 });
 
 // Fungsi untuk menampilkan atau menyembunyikan section
@@ -119,6 +131,43 @@ function showSection(sectionId) {
     activeSection.style.display = "block";
   }
 }
+
+// Periksa apakah token akses masih valid
+const user = await ThePalmSourceUser.getUser();
+if (user) {
+  setLoginStatus(true);
+} else {
+  setLoginStatus(false);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Event listener untuk menu klik
 document.querySelectorAll("button[data-target]").forEach((button) => {

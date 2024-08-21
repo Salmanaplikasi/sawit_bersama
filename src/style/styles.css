@@ -845,6 +845,31 @@ body {
                 display: none;
             }
 
-          
+/* Pop Up */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .popup.success {
+    background-color: #28a745; /* Bootstrap success color */
+  }
+  
+  .popup.error {
+    background-color: #dc3545; /* Bootstrap danger color */
+  }
+  
+  .popup.show {
+    opacity: 1;
+  }          
 
 

@@ -1,5 +1,5 @@
 const CONFIG = {
-    BASE_URL : `localhost:9000`
+    BASE_URL : `http://localhost:5000`
 }
 
 export default CONFIG;

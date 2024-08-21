@@ -1,7 +1,7 @@
 import CONFIG from "../globals/config";
 import { showErrorMessage } from "../utils/popup";
 
-class TheHealthcareSourceUser {
+class ThePalmSourceUser {
     static async register(name, email, password, confPassword) {
         if (password !== confPassword) { // Periksa apakah password dan konfirmasi password sama
             return showErrorMessage("Password dan Konfirmasi Password tidak sama");
@@ -122,4 +122,4 @@ class TheHealthcareSourceUser {
     }
 }
 
-export default TheHealthcareSourceUser;
+export default ThePalmSourceUser;

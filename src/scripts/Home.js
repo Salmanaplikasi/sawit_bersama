@@ -24,7 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fungsi untuk mengambil data dari API
     async function fetchData() {
         try {
-            const response = await fetch('http://93.127.185.37/data/15m');
+            const accessToken = localStorage.getItem('accessToken');
+            const response = await fetch('http://localhost:5000/data/15m',{
+                method : 'GET',
+                headers : {
+                    'Authorization': `Bearer ${accessToken}`, // Sertakan token akses dalam header autorisasi
+                    'Content-Type': 'application/json',
+                }
+            });
             const data = await response.json();
             return data;
         } catch (error) {
