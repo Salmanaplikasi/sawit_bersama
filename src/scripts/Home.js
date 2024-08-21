@@ -1,6 +1,15 @@
 import '../style/home.css';
+import ThePalmSourceUser from './data/sawit-source-user';
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to toggle the visibility of the menu
+    function toggleMenu(targetId) {
+        const submenu = document.getElementById(targetId);
+        if (submenu) {
+            submenu.classList.toggle('active');
+        }
+    }
+
     // Event listeners for sidebar menu items
     document.querySelectorAll('.toggle-menu').forEach(element => {
         element.addEventListener('click', function(event) {
@@ -135,3 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Panggil fungsi untuk merender grafik
     renderCharts();
 });
+
+// Periksa apakah token akses masih valid
+const user = await ThePalmSourceUser.getUser();
+if (!user) {
+    window.location.href = "index.html";
+}
