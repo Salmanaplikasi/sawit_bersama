@@ -134,10 +134,14 @@ function showSection(sectionId) {
 
 // Periksa apakah token akses masih valid
 const user = await ThePalmSourceUser.getUser();
+const navDashboard = document.querySelector('#navDashboard');
 if (user) {
   setLoginStatus(true);
+  navDashboard.style.display = 'block';
 } else {
   setLoginStatus(false);
+  navDashboard.style.display = 'none';
+  
 }
 
 
