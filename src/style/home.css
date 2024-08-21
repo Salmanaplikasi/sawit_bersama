@@ -74,7 +74,7 @@ body {
 .navbar-right .profile-icon img {
     width: 50px;
     height: 50px;
-    margin-right: 100px;
+    margin-right: 20px;
 }
 
 .home-button, .help-button, .about-button {
@@ -185,8 +185,7 @@ body {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 10px;
-    margin-left: -880px; /* Geser tombol ke kiri */
-    margin-right: -40px; /* Geser tombol lebih jauh dari sisi kanan */
+    /* Hilangkan margin-left dan margin-right yang besar */
 }
 
 .logout-btn:hover {
@@ -195,21 +194,43 @@ body {
 
 /* Atur logo user di home page */
 .profile-icon {
-    margin-left: -30px; /* Sesuaikan nilai ini untuk menggeser lebih jauh ke kanan */
+    margin-left: 0; /* Hilangkan margin-left yang besar */
 }
 
 /* CSS untuk grafik */
 #charts-container {
+    margin-top: 60px; /* Menambahkan jarak dari elemen di atasnya */
     display: flex;
     flex-direction: column;
     gap: 20px; /* Spasi antara grafik */
-    margin-top: 40px; /* Menambahkan jarak dari elemen di atasnya */
+    align-items: center; /* Center align konten */
+    display: block;
 }
 
 canvas {
-    width: 100% !important; /* Pastikan canvas mengambil lebar kontainer */
+    width: 100%; /* Pastikan canvas mengambil lebar kontainer */
     height: 500px; /* Atur tinggi grafik sesuai kebutuhan */
     max-width: 1000px; /* Maksimal lebar canvas */
-    margin: 60px auto; /* Center canvas dan beri jarak di atas dan bawah */
-    margin-left: 300px; /* Geser canvas ke arah kanan */
+    margin: 0 auto; /* Center canvas tanpa margin kiri-kanan */
+}
+
+/* Style untuk menu item aktif */
+.sidebar a.active {
+    background-color: #333; /* Warna latar belakang item aktif */
+    color: #fff; /* Warna teks item aktif */
+}
+
+/* Style untuk submenu item aktif */
+.sidebar .submenu a.active {
+    background-color: #d0e0d0; /* Warna latar belakang submenu item aktif */
+    color: #1B5E1F; /* Warna teks submenu item aktif */
+}
+
+/* toggle section content */
+.content-section {
+    display: none; /* Sembunyikan semua konten secara default */
+}
+
+.content-section.active {
+    display: block; /* Tampilkan konten yang aktif */
 }

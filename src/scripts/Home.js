@@ -2,32 +2,60 @@ import '../style/home.css';
 import ThePalmSourceUser from './data/sawit-source-user';
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to toggle the visibility of the menu
-    function toggleMenu(targetId) {
-        const submenu = document.getElementById(targetId);
-        if (submenu) {
-            submenu.classList.toggle('active');
-        }
+    function showContent(targetId) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            if (section.id === targetId + 'Content') {
+                section.classList.add('active');
+                if (targetId === 'monitoring') {
+                    setTimeout(renderCharts, 0); // Pastikan renderCharts dipanggil setelah DOM diperbarui
+                }
+            } else {
+                section.classList.remove('active');
+            }
+        });
     }
 
-    // Event listeners for sidebar menu items
+    function updateSidebarActiveLink(targetId) {
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            if (link.getAttribute('data-target') === targetId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        document.querySelectorAll('.sidebar .submenu a').forEach(subLink => {
+            if (subLink.getAttribute('data-target') === targetId) {
+                subLink.classList.add('active');
+            } else {
+                subLink.classList.remove('active');
+            }
+        });
+    }
+
     document.querySelectorAll('.toggle-menu').forEach(element => {
         element.addEventListener('click', function(event) {
+            event.preventDefault();
             const targetId = this.getAttribute('data-target');
-            toggleMenu(targetId);
+            showContent(targetId);
+            updateSidebarActiveLink(targetId);
+            window.location.hash = targetId; // Update URL hash
         });
     });
+
+    const initialHash = window.location.hash.substring(1);
+    if (initialHash) {
+        showContent(initialHash);
+        updateSidebarActiveLink(initialHash);
+    }
 
     // Fungsi untuk logout
     document.getElementById('logoutBtn').addEventListener('click', function() {
         // Implementasikan logika logout di sini, misalnya hapus sesi pengguna
         // dan kemudian alihkan ke halaman index.html
-
-        // Contoh logika untuk menghapus sesi pengguna, misalnya menggunakan localStorage atau sessionStorage
-        // localStorage.removeItem('isLoggedIn');
-
         // Alihkan ke halaman index.html setelah logout
         window.location.href = 'index.html';
+        localStorage.removeItem('accessToken');
     });
 
     // Fungsi untuk mengambil data dari API

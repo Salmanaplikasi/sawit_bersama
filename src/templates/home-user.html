@@ -8,26 +8,25 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div id="charts-container"></div>
     <div class="navbar">
         <div class="navbar-left">
             <img src="sred-logo.png" alt="SRED Logo">
         </div>
         <div class="navbar-center">
-            <a href="#" class="home-button">Home</a>
+            <a href="index.html" class="home-button">Home</a>
             <a href="#" class="help-button">Help</a>
             <a href="#" class="about-button">About</a>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
         </div>
         <div class="navbar-right">
             <div class="profile-icon">
                 <img src="image.png" alt="Profile Icon" class="Profile Icon">
             </div>
-            <button id="logoutBtn" class="logout-btn">Logout</button>
         </div>
     </div>
-
+    
     <div class="sidebar">
-        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#" class="toggle-menu" data-target="home"><i class="fas fa-home"></i> Home</a>
         <a href="#deviceManagement" class="toggle-menu" data-target="deviceManagement"><i class="fas fa-cogs"></i> Device Management</a>
         <div id="deviceManagement" class="submenu">
             <a href="#">Battery & Pest Fluid</a>
@@ -49,10 +48,59 @@
             <!-- Add submenu items if any -->
         </div>
     </div>
-
+    
     <div class="content">
-        <!-- Add Chart.js canvas element here -->
-        <canvas id="myChart" width="600" height="400"></canvas>
+
+        <!-- Content for Home -->
+         <div id="homeContent" class="content-section">
+            <h2>Home</h2>
+            <p>Aku home</p>
+            <p>halo ges</p>
+         </div>
+
+        <!-- Content for Device Management -->
+        <div id="deviceManagementContent" class="content-section">
+            <h2>Device Management</h2>
+            <p>This section provides information and management options for devices.</p>
+            <p>Here you can manage various devices and perform related operations.</p>
+            <ul>
+                <li><a href="#">View Battery Status</a></li>
+                <li><a href="#">Manage Pest Fluid</a></li>
+                <li><a href="#">Create a New Device</a></li>
+            </ul>
+        </div>
+        
+        <!-- Content for Rover & Drone -->
+        <div id="roverDroneContent" class="content-section">
+            <h2>Rover & Drone</h2>
+            <p>This section includes information about rover and drone operations.</p>
+            <p>Details about rover and drone functionalities and settings can be found here.</p>
+            <ul>
+                <li><a href="#">Rover Operations</a></li>
+                <li><a href="#">Drone Specifications</a></li>
+                <li><a href="#">Setup & Calibration</a></li>
+            </ul>
+        </div>
+        
+        <!-- Content for Monitoring -->
+        <div id="monitoringContent" class="content-section">
+            <h2>Monitoring</h2>
+            <p>This section covers monitoring of various environmental and operational parameters.</p>
+            <p>Real-time and historical monitoring data can be accessed here.</p>
+            <div id="charts-container"></div>
+        </div>
+
+        <!-- Content for Maintenance -->
+        <div id="maintenanceContent" class="content-section">
+            <h2>Maintenance</h2>
+            <p>This section provides tools and information for maintaining devices and systems.</p>
+            <p>Here you can find maintenance schedules, procedures, and related details.</p>
+            <ul>
+                <li><a href="#">Maintenance Schedule</a></li>
+                <li><a href="#">Procedure Guidelines</a></li>
+                <li><a href="#">Request Maintenance</a></li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

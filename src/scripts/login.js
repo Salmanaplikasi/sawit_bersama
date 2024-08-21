@@ -76,7 +76,7 @@ document
     if(response){
       setLoginStatus(true);
       document.getElementById("login-form").style.display = "none";
-      window.location.href = "home-user.html";  /////////asdoasodosdaosdapsad
+      window.location.href = "home-user.html#home";
     }
     
   });
